@@ -8,7 +8,6 @@ const registration = require('./registration.js');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
 //Serve front-end static files
 app.use('/', express.static('static'));
 

@@ -43,8 +43,8 @@ function login() {
         }else{
             sessionStorage.setItem("email",email);
             sessionStorage.setItem("password",password);
-            sessionStorage.setItem("animale",JSON.stringify(data.animale));
-            console.log(data.animale[0]);
+            //sessionStorage.setItem("animale",JSON.stringify(data.animale));
+            //console.log(data.animale[0]);
 
             document.location.href='home.html';
         }
