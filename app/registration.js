@@ -7,7 +7,7 @@ router.post('', async function(req, res){
 
     //Check if username or password are empty
     if(req.body.email == "" || req.body.password == ""){
-        res.json({ success: false, message: 'Registration failed. input empty'})
+        res.status(406).json({ success: false, message: 'Registration failed. input empty'})
     }else{
 
         // Search the user
@@ -17,7 +17,7 @@ router.post('', async function(req, res){
 
         //User found
         if(user){
-            res.json({ success: false, message: 'Registration failed. User already subscribed.' });
+            res.status(409).json({ success: false, message: 'Registration failed. User already subscribed.' });
         }else{
 
             new User({
@@ -31,12 +31,12 @@ router.post('', async function(req, res){
             }).exec();
 
             if(user){
-                res.json({
+                res.status(201).json({
                     success: true,
                     message: 'User subscribed',
                     email: user.email,
                     id: user._id,
-                    self: "api/v1/" + user._id /*non so perché restituisce undefined*/
+                    self: "api/v1/" + user._id
                 });
             }else{
                 res.json({success: false, message: 'Registration failed.'})

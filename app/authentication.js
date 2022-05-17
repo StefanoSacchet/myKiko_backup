@@ -16,12 +16,12 @@ router.post('', async function(req, res) {
 
 	// user not found
 	if (!user) {
-		res.json({ success: false, message: 'Authentication failed. User not found.' });
+		res.status(404).json({ success: false, message: 'Authentication failed. User not found.' });
 	}else{
 
 		// check if password matches
 		if (user.password != req.body.password) {
-			res.json({ success: false, message: 'Authentication failed. Wrong password.' });
+			res.status(404).json({ success: false, message: 'Authentication failed. Wrong password.' });
 		}else{
 
 			// if user is found and password is right create a token
@@ -35,14 +35,13 @@ router.post('', async function(req, res) {
 			}
 			var token = jwt.sign(payload, process.env.SUPER_SECRET, options);
 
-			res.json({
+			res.status(200).json({
 				success: true,
 				message: 'Enjoy your token!',
 				token: token,
 				email: user.email,
 				id: user._id,
 				self: "api/v1/" + user._id,
-				animale: user.animale
 			});
 		}
 	}

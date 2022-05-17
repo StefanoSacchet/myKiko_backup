@@ -32,7 +32,6 @@ function login() {
         loggedUser.email = data.email;
         loggedUser.id = data.id;
         loggedUser.self = data.self;
-        loggedUser.animale = data.animale;
 
         if(!data.success){
             var para = document.createElement("p");
