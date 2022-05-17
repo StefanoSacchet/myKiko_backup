@@ -27,7 +27,7 @@ function login() {
     })
     .then((resp) => resp.json()) // Transform the data into json
     .then(function(data) { // Here you get the data to modify as you please
-        console.log(data);
+        //console.log(data);
         loggedUser.token = data.token;
         loggedUser.email = data.email;
         loggedUser.id = data.id;
@@ -42,10 +42,6 @@ function login() {
             element.appendChild(para);
         }else{
             sessionStorage.setItem("email",email);
-            sessionStorage.setItem("password",password);
-            //sessionStorage.setItem("animale",JSON.stringify(data.animale));
-            //console.log(data.animale[0]);
-
             document.location.href='home.html';
         }
 

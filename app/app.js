@@ -3,6 +3,7 @@ const app = express();
 
 const authentication = require('./authentication.js');
 const registration = require('./registration.js');
+const infoAnimale = require('./infoAnimale.js');
 
 //Configure Express.js parsing middleware
 app.use(express.json());
@@ -16,6 +17,8 @@ app.use('/api/v1/authentications', authentication);
 
 //Registration routing and middleware
 app.use('/api/v1/registration', registration);
+
+app.use('/api/v1/infoAnimale',infoAnimale);
 
 //Default 404 handler
 app.use((req, res) => {
