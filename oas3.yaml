@@ -102,7 +102,26 @@ paths:
               schema:
                 type: string
               description: Autenticazione fallita, User non trovato
-          
+              
+  /modificaCredenziali:
+    put:
+      description: >-
+        Modifica le credenziali dell'utente.
+      summary: Modifica credenziali 
+      responses:
+          '200':
+            description: Changes applyed
+            schema:
+              type: array
+              items:
+                $ref: '#/definitions/schemas'
+            examples:
+              application/json:
+                - emailNew: nuovaemail@gmail.com
+                  password: nuovapassword123
+          '404': 
+            description: Error  
+  
 components:
   schemas:
     Animale:
