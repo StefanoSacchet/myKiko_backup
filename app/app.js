@@ -4,6 +4,7 @@ const app = express();
 const authentication = require('./authentication.js');
 const registration = require('./registration.js');
 const infoAnimale = require('./infoAnimale.js');
+const modificaCredenziali = require('./modificaCredenziali.js');
 
 //Configure Express.js parsing middleware
 app.use(express.json());
@@ -18,7 +19,11 @@ app.use('/api/v1/authentications', authentication);
 //Registration routing and middleware
 app.use('/api/v1/registration', registration);
 
+//Info pets
 app.use('/api/v1/infoAnimale',infoAnimale);
+
+//Change credentials
+app.use('/api/v1/modificaCredenziali',modificaCredenziali);
 
 //Default 404 handler
 app.use((req, res) => {
