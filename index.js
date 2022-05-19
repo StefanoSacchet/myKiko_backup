@@ -12,6 +12,7 @@ app.locals.db = mongoose.connect(process.env.DB_URL)
             console.log("Server listening on port " + port);
         })
     });
+    
 /*new User({
     email: 'bella',
     password: '456',
