@@ -10,13 +10,18 @@ router.put('', async function(req,res){
     let emailNew = req.body.emailNew;
     let passwordNew = req.body.passwordNew;
 
-    let user = await User.updateOne( { email: emailOld }, { password: passwordNew })
-    user = await User.updateOne( { email: emailOld }, { email: emailNew })
-
-    if(user){
-        res.status(200).json({ success: true, message: 'Changes applyed' })
+    if(emailNew == "" || passwordNew == ""){
+        res.status(400).json({ success: false, message: 'Empty inputs' })
     }else{
-        res.status(404).json({ success: false, message: 'Error' })
+
+        let user = await User.updateOne( { email: emailOld }, { password: passwordNew })
+        user = await User.updateOne( { email: emailOld }, { email: emailNew })
+
+        if(user){
+            res.status(200).json({ success: true, message: 'Changes applyed' })
+        }else{
+            res.status(404).json({ success: false, message: 'Error' })
+        }
     }
 })
 

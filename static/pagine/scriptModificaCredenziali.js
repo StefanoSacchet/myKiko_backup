@@ -11,16 +11,27 @@ function confermaCredenziali(){
     })
     .then((resp) => resp.json()) // Transform the data into json
     .then(function(data){
+        
         //console.log(data);
 
         if(data.success){
+
             var para = document.createElement("p");
             var nodo = document.createTextNode("Modifiche applicate");
             para.appendChild(nodo);
             document.body.appendChild(para);
             //sleep(2);
             annullaCredenziali();
+
+        }else if(data.message == "Empty inputs"){
+
+            var para = document.createElement("p");
+            var nodo = document.createTextNode("Inserire email e password nuove");
+            para.appendChild(nodo);
+            document.body.appendChild(para);
+
         }else{
+
             var para = document.createElement("p");
             var nodo = document.createTextNode("Errore");
             para.appendChild(nodo);

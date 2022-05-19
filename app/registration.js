@@ -7,7 +7,7 @@ router.post('', async function(req, res){
 
     //Check if username or password are empty
     if(req.body.email == "" || req.body.password == ""){
-        res.status(406).json({ success: false, message: 'Registration failed. input empty'})
+        res.status(400).json({ success: false, message: 'Registration failed. input empty'})
     }else{
 
         // Search the user
