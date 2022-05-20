@@ -20,7 +20,7 @@ router.put('', async function(req,res){
         if(user){
             res.status(200).json({ success: true, message: 'Changes applyed' })
         }else{
-            res.status(404).json({ success: false, message: 'Error' })
+            res.json({ success: false, message: 'User not found' })
         }
     }
 })

@@ -17,7 +17,7 @@ router.post('', async function(req, res){
 
         //User found
         if(user){
-            res.status(409).json({ success: false, message: 'Registration failed. User already subscribed.' });
+            res.json({ success: false, message: 'Registration failed. User already subscribed.' });
         }else{
 
             new User({

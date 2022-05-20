@@ -12,7 +12,7 @@ paths:
   /authentications:
     post:
       description: >-
-        Verify the user's credentials in the system.
+        Verify the user's credentials in the system
       summary: Authenticates the user
       requestBody:
         content:
@@ -41,7 +41,7 @@ paths:
   /registration:
     post:
       description: >-
-        Creates a new user in the system.
+        Creates a new user in the system
       summary: Register a new user
       requestBody:
         content:
@@ -65,7 +65,7 @@ paths:
             'Location':
               schema:
                 type: string
-              description: Link to the newly created user.
+              description: Link to the newly created user
         '400':
           description: 'Input fields are empty'
           headers:
@@ -73,19 +73,12 @@ paths:
               schema:
                 type: string
               description: Registration failed. input empty
-        '409':
-          description: 'The user is already subscribed'
-          headers:
-            'Message':
-              schema:
-                type: string
-              description: Registration failed. user already subscribed
 
   /infoAnimale:
     get:
       description: >-
-        Prende i dati animale.
-      summary: Vede tutte le info
+        Gets the pet's info from the database
+      summary: Sees all the info
       responses:
         '200':
           description: 'Collections of pets'
@@ -95,32 +88,30 @@ paths:
                 type: string
                 items:
                   $ref: '#/components/schemas/InfoAnimale'
-        '404':
-          description: 'User non trovato'
-          headers:
-            'Message':
-              schema:
-                type: string
-              description: Autenticazione fallita, User non trovato
-              
+  
   /modificaCredenziali:
     put:
       description: >-
-        Modifica le credenziali dell'utente.
-      summary: Modifica credenziali 
+        Modifies user's credentials
+      summary: Changes user's info
       responses:
           '200':
-            description: Changes applyed
+            description: 'Changes applyed'
             schema:
               type: array
               items:
                 $ref: '#/definitions/schemas'
             examples:
               application/json:
-                - emailNew: nuovaemail@gmail.com
-                  password: nuovapassword123
-          '404': 
-            description: Error  
+                - emailNew: newemail@gmail.com
+                  password: newpassword123
+          '400':
+            description: 'Empty inputs fields'
+            headers:
+              'Message':
+                schema:
+                  type: string
+                description: Failed changes, empty inputs fields 
   
 components:
   schemas:

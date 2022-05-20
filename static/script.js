@@ -4,6 +4,8 @@ var loggedUser = {};
 let buttonLogin = document.querySelector(".button");
 let buttonIscriviti = document.querySelector(".input");
 
+let count = 0; //Print only once 'Username o password sbagliati'
+
 //This function is called when login button is pressed
 function login() {
 
@@ -34,12 +36,18 @@ function login() {
         loggedUser.self = data.self;
 
         if(!data.success){
-            var para = document.createElement("p");
-            var nodo = document.createTextNode("Username o password sbagliati");
-            para.appendChild(nodo);
-            var element = document.getElementById("loginform");
-            element.appendChild(para);
+
+            //Print only once 'Username o password sbagliati'
+            if(count == 0){
+                var para = document.createElement("p");
+                var nodo = document.createTextNode("Username o password sbagliati");
+                para.appendChild(nodo);
+                var element = document.getElementById("loginform");
+                element.appendChild(para);
+                count++;
+            }
         }else{
+            count = 0;
             sessionStorage.setItem("email",email);
             document.location.href='home.html';
         }

@@ -1,3 +1,5 @@
+let count = 0;
+
 function confermaCredenziali(){
 
     var emailOld = sessionStorage.getItem("email");
@@ -21,15 +23,18 @@ function confermaCredenziali(){
             para.appendChild(nodo);
             document.body.appendChild(para);
             //sleep(2);
+            count = 0;
             annullaCredenziali();
 
         }else if(data.message == "Empty inputs"){
 
-            var para = document.createElement("p");
-            var nodo = document.createTextNode("Inserire email e password nuove");
-            para.appendChild(nodo);
-            document.body.appendChild(para);
-
+            if(count == 0){
+                var para = document.createElement("p");
+                var nodo = document.createTextNode("Inserire email e password nuove");
+                para.appendChild(nodo);
+                document.body.appendChild(para);
+                count++;
+            }
         }else{
 
             var para = document.createElement("p");

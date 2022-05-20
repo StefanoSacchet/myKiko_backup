@@ -11,7 +11,7 @@ router.get('', async function(req,res){
 
     //User nod found
     if (!user) {
-		res.status(404).json({ success: false, message: 'Authentication failed. User not found.' });
+		res.json({ success: false, message: 'Authentication failed. User not found.' });
 	}else{
 
         res.status(200).json({
