@@ -11,15 +11,10 @@ function infoAnimale(){
     .catch( error => console.error(error) ); // If there is any error you will catch them here
 }
 
-function infoAnimale(){
-    document.location.href = '/pagine/infoAnimale.html';
+function modificaInfoAnimale(){
+    document.location.href = 'modificaInfoAnimale.html';
 }
 
-function modificaCredenziali(){
-    document.location.href = '/pagine/modificaCredenziali.html';
-}
-
-function logout(){
-    sessionStorage.clear();//Clear user data
-    document.location.href='index.html';//Go back to login
+function goBack(){
+    document.location.href = '/home.html';
 }

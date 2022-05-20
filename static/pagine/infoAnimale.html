@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    </head>
+
+    <body style="background-color: lightblue;">
+        <h1  style="color: #644847;">Informazioni sull'animale</h1>
+
+        <br>
+
+        <div class="btn-group">
+            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Seleziona animale
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+        </div>
+
+        <img src="/images/cane.jpg" height="100" width="150" id="immagine">
+
+        <br><br>
+
+        <!--<div id="gestisciInfoAnimale">
+            <h5>Inserire dati animale:</h5>
+            <input type="text" placeholder="Nome" id="nome"/>
+            <br><br>
+            <input type="text" placeholder="Razza" id="razza"/>
+            <br><br>
+            <input type="text" placeholder="Età" id="eta"/>
+            <br><br>
+            <input type="text" placeholder="Peso" id="peso"/>
+            <br><br>
+            <input type="text" placeholder="Codice chip" id="codiceChip"/>
+            <br><br>
+            <button class="button" type="button" onclick="conferma()">Conferma</button>
+            <button class="button" type="button" onclick="annulla()">Annulla</button>
+        </div> -->
+
+        <button onclick="infoAnimale()">Info animale</button>
+        <br>
+        <p id="infoAnimale"></p>
+        
+        <!-- area di caratteristiche della specie  -->
+        <div>
+            <h5>Carratteristiche della razza:</h5>
+            <h7>"info prelevate dal database"</h7>    
+        </div>
+        <br>
+
+        <!-- Tasto che permette l'indirizzamento alla schermata di modifica informazioni animale -->
+        <button id="gestisciAnimale" onclick="modificaInfoAnimale()">Modifica info animale</button>
+        
+        <br><br>
+        <button onclick="goBack()">Indietro</button>
+        
+        <script src="scriptInfoAnimale.js"></script>
+
+    </body>
+</html>

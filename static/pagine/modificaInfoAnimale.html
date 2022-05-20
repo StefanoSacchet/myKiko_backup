@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    </head>
+
+    <body style="background-color: lightblue;">
+
+        <h1  style="color: #644847;">Modifica info animale</h1>
+        <br>
+
+        <div id="gestisciInfoAnimale">
+            <h5>Inserire dati animale:</h5>
+            <input type="text" placeholder="Nome" id="nome"/>
+            <br><br>
+            <input type="text" placeholder="Razza" id="razza"/>
+            <br><br>
+            <input type="text" placeholder="Età" id="eta"/>
+            <br><br>
+            <input type="text" placeholder="Peso" id="peso"/>
+            <br><br>
+            <input type="text" placeholder="Codice chip" id="codiceChip"/>
+            <br><br>
+            <button class="button" type="button" onclick="conferma()">Conferma</button>
+            <button class="button" type="button" onclick="annulla()">Annulla</button>
+        </div>
+
+        <script src="scriptModificaInfoAnimale.js"></script>
+
+    </body>
+</html>
