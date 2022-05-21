@@ -1,8 +1,8 @@
 var loggedUser = {};
 
 //Per disabilitare e riabilitare i bottoni
-let buttonLogin = document.querySelector(".button");
-let buttonIscriviti = document.querySelector(".input");
+let buttonLogin = document.getElementById("login");
+let buttonIscriviti = document.getElementById("iscriviti");
 
 let count = 0; //Print only once 'Username o password sbagliati'
 
@@ -72,7 +72,7 @@ function signUp(){
     var email = document.getElementById("loginEmail").value;
     var password = document.getElementById("loginPassword").value;
 
-    console.log(email + " " + password);
+    //console.log(email + " " + password);
 
     fetch('../api/v1/registration', {
         method: 'POST',
@@ -81,7 +81,7 @@ function signUp(){
     })
     .then((resp) => resp.json()) // Transform the data into json
     .then(function(data) { // Here you get the data to modify as you please
-        console.log(data); /*problema: id = undefinfed*/
+        //console.log(data); /*problema: id = undefinfed*/
 
         if(data.success){
             var para = document.createElement("p");

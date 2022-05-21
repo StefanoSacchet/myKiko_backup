@@ -8,22 +8,25 @@
     </head>
 
     <body style="background-color: lightblue;">
-        <h1  style="color: #644847;">Modifica credenziali</h1>
+        <h1 style="color: #644847;">Modifica credenziali</h1>
 
         <br>
-        <div>
-            <h5>Inserire nuove credenziali:</h5>
-            <span id="loggedUser"></span>
-            <input type="text" name="email" placeholder="Username" id="email"/>
-            <br><br>
-            <input type="password" name="password" placeholder="Password" id="password"/>
-            <br><br>
-            <button class="button" type="button" onclick="confermaCredenziali()">Conferma</button>
-            <button class="input" type="button" onclick="annullaCredenziali()">Annulla</button>
-            <p id="paraMessage"></p>
-        </div>
 
+        <h5 class="card-title">Inserire nuove credenziali:</h5>
+        <p class="text-danger" id="paraMessage"></p>
+
+        <div class="row g-3">
+            <div class="col-sm-2">
+              <input type="text" class="form-control" placeholder="Username" aria-label="First name" id="email">
+            </div>
+            <div class="col-sm-2">
+              <input type="password" class="form-control" placeholder="Password" aria-label="Last name" id="password">
+            </div>
+        </div>
         
+        <br>
+        <button type="button" class="btn btn-primary" onclick="confermaCredenziali()">Conferma</button>
+        <button type="button" class="btn btn-light" onclick="annullaCredenziali()">Annulla</button>
 
         <script src="scriptModificaCredenziali.js"></script>
 

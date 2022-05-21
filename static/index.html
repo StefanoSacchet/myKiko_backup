@@ -11,7 +11,7 @@
     <body style="background-color: lightblue;">
         <h1 align="center" id="titolo" style="color: #644847;">MyKiko</h1>
 
-        <form align="center" action="home.html" method="get" name="loginform" id="loginform">
+        <!-- <form align="center" name="loginform" id="loginform">
             <img src="images/MyKiko.png" height="180" width="180">
             <h4>Inserire credenziali</h4>
             <span id="loggedUser"></span>
@@ -21,7 +21,22 @@
             <br><br>
             <button class="button" type="button" onclick="login()">Login</button>
             <button class="input" type="button" onclick="signUp()">Iscriviti</button>
-        </form>
+        </form> -->
+
+        <div align="center" name="loginform" id="loginform">
+            <img src="images/MyKiko.png" height="180" width="180">
+            <h5>Inserire credenziali</h5>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" placeholder="Username" aria-label="First name" id="loginEmail">
+            </div>
+            <br>
+            <div class="col-sm-2">
+                <input type="password" class="form-control" placeholder="Password" aria-label="First name" id="loginPassword">
+            </div>
+            <br>
+            <button class="btn btn-primary" type="button" id="login" onclick="login()">Login</button>
+            <button class="btn btn-primary" type="button" id="iscriviti" onclick="signUp()">Iscriviti</button>
+        </div>
 
         <script src="script.js"></script>
     </body>

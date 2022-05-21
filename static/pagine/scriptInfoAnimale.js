@@ -1,9 +1,11 @@
 var email = sessionStorage.getItem("email"); //Get user email
 
 //Enable and disable button
-let btnMdificaInfoAnimale = document.querySelector(".button");
+let btnModificaInfoAnimale = document.getElementById("gestisciAnimale");
+let accordion = document.getElementById("btnAccordion");
 
-btnMdificaInfoAnimale.disabled = true; //Disable button
+btnModificaInfoAnimale.disabled = true; //Disable button
+accordion.disabled = true; //disable accordion
 
 //Get pet's info
 fetch('../api/v1/infoAnimale?email=' + email)
@@ -15,11 +17,10 @@ fetch('../api/v1/infoAnimale?email=' + email)
 .catch(error => console.error(error)); // If there is any error you will catch them here
 
 function dropdownDinamic(data){
-
     //console.log(data[0].nome);
 
     data.forEach(animale => {
-        let dropdowndElement = document. createElement('button');
+        let dropdowndElement = document.createElement('button');
         dropdowndElement.setAttribute("class","dropdown-item");
 
         dropdowndElement.onclick = () => {
@@ -35,12 +36,30 @@ function dropdownDinamic(data){
 }
 
 function writeInfo(data){
-    btnMdificaInfoAnimale.disabled = false; //Enable button
+    btnModificaInfoAnimale.disabled = false; //Enable button
+    accordion.disabled = false; //Enable accordion
+
     //console.log(data._id);
     sessionStorage.setItem("idAnimale",data._id); //Save pet's id
-    //Print pet's info
-    document.getElementById("infoAnimale").innerHTML = "Info animale:<br />nome: " + data.nome + "<br />razza: " + data.razza + "<br />eta: " + data.eta 
-                                                       + "<br />peso: " + data.peso + "<br />codiceChip: " + data.codiceChip;
+
+    /*Add card*/
+    initCard(data);
+}
+
+function initCard(data){
+
+    let divCard = document.getElementById("card");
+    divCard.setAttribute("class","card");
+    divCard.setAttribute("style","width: 18rem;");
+
+    let img = document.getElementById("imgCard");
+    img.setAttribute("src","/images/cane.jpg");
+    
+    let h5 = document.getElementById("h5Card");    
+    h5.textContent = data.nome;
+
+    document.getElementById("pCard").innerHTML = "Razza: " + data.razza + "<br>Età: " + data.eta 
+    + "<br>Peso: " + data.peso + "<br>CodiceChip: " + data.codiceChip;
 }
 
 //Go to page "modificaInfoAnimale.html"
