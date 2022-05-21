@@ -25,9 +25,9 @@ function confermaCredenziali(){
             annullaCredenziali(); //Go back to home screen
 
         }else if(data.message == "Empty inputs"){
-            document.getElementById("paraMessage").innerHTML = "Compilare tutti i campi";
+            document.getElementById("paraDanger").innerHTML = "Compilare tutti i campi";
         }else{
-            document.getElementById("paraMessage").innerHTML = "Utente non trovato";
+            document.getElementById("paraDanger").innerHTML = "Utente non trovato";
         }
     })
     .catch( error => console.error(error) ); // If there is any error you will catch them here

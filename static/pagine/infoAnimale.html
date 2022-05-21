@@ -14,8 +14,7 @@
 
   <body style="background-color: lightblue;">
 
-
-    <h1  style="color: #644847;">Informazioni sull'animale</h1>
+    <h1  style="color: #644847;">Informazioni animale</h1>
 
     <br>
 
@@ -28,8 +27,6 @@
             <!-- <li><a class="dropdown-item" href="#">Action</a></li> -->
         </ul>
     </div>
-
-    <!-- <img src="/images/cane.jpg" height="100" width="150" id="immagine"> -->
 
     <br><br>
     <p id="infoAnimale"></p>
@@ -54,15 +51,18 @@
           </button>
         </h2>
         <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body">Dati</div>
+          <div class="accordion-body" id="datiSpecie">Dati</div>
         </div>
       </div>
     </div>
       
     <br>
 
-    <!-- Tasto che permette l'indirizzamento alla schermata di modifica informazioni animale -->
-    <button type="button" class="btn btn-primary" id="gestisciAnimale" onclick="modificaInfoAnimale()">Modifica info animale</button>
+    <!-- Modifica informazioni animale -->
+    <div>
+      <button type="button" class="btn btn-primary" id="gestisciAnimale" onclick="modificaInfoAnimale()">Modifica info animale</button>
+      <button type="button" class="btn btn-primary" id="aggiungiAnimale">Aggiungi animale</button>
+    </div>
         
     <br><br>
     <button type="button" class="btn btn-light" onclick="goBack()">Indietro</button>

@@ -36,6 +36,7 @@ function dropdownDinamic(data){
 }
 
 function writeInfo(data){
+
     btnModificaInfoAnimale.disabled = false; //Enable button
     accordion.disabled = false; //Enable accordion
 
@@ -44,6 +45,8 @@ function writeInfo(data){
 
     /*Add card*/
     initCard(data);
+
+    document.getElementById("datiSpecie").innerHTML = data.infoSpecie;
 }
 
 function initCard(data){
@@ -59,7 +62,7 @@ function initCard(data){
     h5.textContent = data.nome;
 
     document.getElementById("pCard").innerHTML = "Razza: " + data.razza + "<br>Età: " + data.eta 
-    + "<br>Peso: " + data.peso + "<br>CodiceChip: " + data.codiceChip;
+    + " anni<br>Peso: " + data.peso + " Kg<br>CodiceChip: " + data.codiceChip;
 }
 
 //Go to page "modificaInfoAnimale.html"

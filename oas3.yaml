@@ -114,6 +114,24 @@ paths:
                 description: Failed changes, empty inputs fields
 
   /modificaInfoAnimale:
+    put:
+      description: >-
+        Modifies pet's data
+      summary: Changes pet's info
+      responses:
+        '200':
+          description: 'Changes applyed'
+           schema:
+              type: array
+              items:
+                $ref: '#/definitions/schemas'
+        '400':
+           description: 'Empty inputs fields'
+            headers:
+              'Message':
+                schema:
+                  type: string
+                description: Failed changes, empty inputs fields
   
 components:
   schemas:

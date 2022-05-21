@@ -15,19 +15,27 @@ app.locals.db = mongoose.connect(process.env.DB_URL)
 
 /*AGGIUNGE USER AL DATABSE*/
 /*new User({
-    email: 'bella',
-    password: '456',
+    email: 'prova1',
+    password: '1',
     animale: [{
-        nome: 'bubi',
-        razza: 'cane',
-        eta: 14,
-        peso: 13,
-        codiceChip: 'fff'
+        nome: 'Theodore',
+        razza: 'gatto',
+        eta: 7,
+        peso: 8.1,
+        codiceChip: 'abc',
+        infoSpecie: "Il gatto domestico è un mammifero carnivoro appartenente alla famiglia dei felidi. Dall’indole essenzialmente territoriale e crepuscolare, il gatto è un" +
+        "predatore di piccoli animali, specialmente roditori. Per comunicare utilizza vari vocalizzi, le fusa, le posizioni del corpo e i feromoni. Prevalentemente domestico," +
+        "il gatto può essere addestrato ad accettare istruzioni semplici e può imparare da solo a manipolare svariati meccanismi, anche complessi, tra cui le maniglie delle porte" +
+        "o le chiusure delle gabbie."
     }, {
-        nome: 'bobo',
-        razza: 'pappagallo',
-        eta: 2,
-        peso: 0.8,
-        codiceChip: 'ppp'
+        nome: 'Ariel',
+        razza: 'gatto',
+        eta: 7,
+        peso: 6.2,
+        codiceChip: '123',
+        infoSpecie: "Il gatto domestico è un mammifero carnivoro appartenente alla famiglia dei felidi. Dall’indole essenzialmente territoriale e crepuscolare, il gatto è un" +
+        "predatore di piccoli animali, specialmente roditori. Per comunicare utilizza vari vocalizzi, le fusa, le posizioni del corpo e i feromoni. Prevalentemente domestico," +
+        "il gatto può essere addestrato ad accettare istruzioni semplici e può imparare da solo a manipolare svariati meccanismi, anche complessi, tra cui le maniglie delle porte" +
+        "o le chiusure delle gabbie."
     }]
 }).save();*/
