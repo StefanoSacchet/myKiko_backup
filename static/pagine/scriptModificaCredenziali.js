@@ -1,10 +1,12 @@
-let count = 0;
-
 function confermaCredenziali(){
 
-    var emailOld = sessionStorage.getItem("email");
-    var emailNew = document.getElementById("email").value;
-    var passwordNew = document.getElementById("password").value;
+    let emailOld = sessionStorage.getItem("email"); //Get user's email
+
+    //Get user's inputs
+    let emailNew = document.getElementById("email").value;
+    let passwordNew = document.getElementById("password").value;
+
+    document.getElementById("paraMessage").innerHTML = ""; //Reset paragraph
 
     fetch('/api/v1/modificaCredenziali', {
         method: 'PUT',
@@ -18,34 +20,20 @@ function confermaCredenziali(){
 
         if(data.success){
 
-            var para = document.createElement("p");
-            var nodo = document.createTextNode("Modifiche applicate");
-            para.appendChild(nodo);
-            document.body.appendChild(para);
+            document.getElementById("paraMessage").innerHTML = "Modifiche applicate";
             //sleep(2);
-            count = 0;
-            annullaCredenziali();
+            annullaCredenziali(); //Go back to home screen
 
         }else if(data.message == "Empty inputs"){
-
-            if(count == 0){
-                var para = document.createElement("p");
-                var nodo = document.createTextNode("Inserire email e password nuove");
-                para.appendChild(nodo);
-                document.body.appendChild(para);
-                count++;
-            }
+            document.getElementById("paraMessage").innerHTML = "Compilare tutti i campi";
         }else{
-
-            var para = document.createElement("p");
-            var nodo = document.createTextNode("Errore");
-            para.appendChild(nodo);
-            document.body.appendChild(para);
+            document.getElementById("paraMessage").innerHTML = "Utente non trovato";
         }
     })
     .catch( error => console.error(error) ); // If there is any error you will catch them here
 }
 
+//Go back to home screen
 function annullaCredenziali(){
     document.location.href='/home.html';
 }

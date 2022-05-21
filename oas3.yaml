@@ -111,7 +111,9 @@ paths:
               'Message':
                 schema:
                   type: string
-                description: Failed changes, empty inputs fields 
+                description: Failed changes, empty inputs fields
+
+  /modificaInfoAnimale:
   
 components:
   schemas:
