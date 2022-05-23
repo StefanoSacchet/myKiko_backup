@@ -21,7 +21,7 @@ router.post('', async function(req,res){
         //console.log(user);
 
         if(user.acknowledged == true){
-            res.status(200).json({ success: true, message: 'Changes applyed' })
+            res.status(201).json({ success: true, message: 'Changes applyed' })
         }else{
             res.json({ success: false, message: 'User not found' })
         }
