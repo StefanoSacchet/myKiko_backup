@@ -6,6 +6,7 @@ const registration = require('./registration.js');
 const infoAnimale = require('./infoAnimale.js');
 const modificaCredenziali = require('./modificaCredenziali.js');
 const modificaInfoAnimale = require('./modificaInfoAnimale.js');
+const aggiungiAnimale = require('./aggiungiAnimale.js');
 
 //Configure Express.js parsing middleware
 app.use(express.json());
@@ -28,6 +29,9 @@ app.use('/api/v1/modificaCredenziali',modificaCredenziali);
 
 //Change pet's info
 app.use('/api/v1/modificaInfoAnimale',modificaInfoAnimale);
+
+//Add pets
+app.use('/api/v1/aggiungiAnimale',aggiungiAnimale);
 
 //Default 404 handler
 app.use((req, res) => {

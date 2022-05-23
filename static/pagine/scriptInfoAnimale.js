@@ -70,6 +70,10 @@ function modificaInfoAnimale(){
     document.location.href = 'modificaInfoAnimale.html';
 }
 
+function aggiungiAnimale(){
+    document.location.href = 'aggiungiAnimale.html'
+}
+
 //Go back to home screen
 function goBack(){
     document.location.href = '/home.html';
