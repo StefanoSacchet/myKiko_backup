@@ -132,6 +132,41 @@ paths:
                 schema:
                   type: string
                 description: Failed changes, empty inputs fields
+                
+  /AggiungiAnimale:
+    post:
+      description: >-
+        Puoi aggiungere il tuo animale inserendo le informazioni disponibili
+      summary: Crea un nuovo animale nel database
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/schemas'
+      responses:
+        201:
+          description: 'Data inserted'
+          schema:
+            $ref: '#/definitions/schemas'
+          examples:
+            application/json:
+              - email: emailUtente
+                nome: nome_animale
+                razza: razza_animale
+                eta: eta_animale
+                peso: peso_animale
+                codicechip: codicechip_animale
+        400:
+          description: Empty imputs
+          examples:
+            application/json:
+              - email: emailUtente
+                nome: 
+                razza: 
+                eta: 
+                peso: 
+                codicechip: 
   
 components:
   schemas:
