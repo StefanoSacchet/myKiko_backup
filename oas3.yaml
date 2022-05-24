@@ -179,15 +179,16 @@ components:
         - eta
         - peso
         - CodiceChip
+        - caratteristicaSpecie
       properties:
         email:
-          type: string
+          type: String
           description: 'User email'
         nome:
-          type: string
+          type: String
           description: 'Nome animale'
         razza:
-          type: string
+          type: String
           description: 'Razza animale'
         eta:
           type: Number
@@ -198,6 +199,10 @@ components:
         codiceChip:
           type: String
           description: 'Codice del chip identificativo'
+        caratteristicaSpecie:
+          type: String
+          description: descrizione caratteristica specie
+         
     User:
       type: object
       required:
