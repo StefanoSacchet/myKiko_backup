@@ -14,6 +14,8 @@ app.locals.db = mongoose.connect(process.env.DB_URL)
         })
     });
 
+    /*mongodb+srv://prova:pronti@cluster0.bj5sk.mongodb.net/Cluster0?retryWrites=true&w=majority*/ 
+
 /*AGGIUNGE USER AL DATABSE*/
 /*new User({
     email: 'prova2',
@@ -43,8 +45,10 @@ app.locals.db = mongoose.connect(process.env.DB_URL)
 }).save();*/
 
 /*AGGIUNGE RAZZA AL DATABSE*/
-/*new Razza({
-    razza: 'siamese',
-    infoSpecie: 'Il gatto siamese è uno dei pochi da essere riconosciuto quasi da tutti, con i suoi caratteristici occhi chiari e le estremità del corpo di una tonalità più scura rispetto al mantello.Secondo alcuni, questo gatto riesce anche a comunicare bene con il suo padrone, modulando il tono e il ritmo del suo miagolio. Non è raro inoltre riuscirlo a portare al guinzaglio, come se fosse un piccolo cagnolino.',
-    immagine: '/images/siamese.jpeg'
-}).save();*/
+/*
+new Razza({
+    razza: 'carlino',
+    infoSpecie: "Decisamente quadrato e raccolto, è il “multum in parvo “ dimostrato nella compattezza di forme, struttura ben solida e muscolatura potente. Il Carlino è un cane che adora stare in casa e che non ama essere lasciato in solitudine. La condivisione di momenti felici con il proprietario è tutto per lui. È un cane di grande compagnia che si adatta facilmente alla vita con altri cani e instaura un rapporto amichevole anche con gli sconosciuti. Adora giocare e dispone di un discreto livello di energia e vigorosità. Ama molto giocare anche con i bambini. Può sviluppare la tendenza a ingrassare, bisogna, quindi, garantirgli una discreta quantità di esercizi quotidiani. I costi per il mantenimento rientrano nella media.",
+    immagine: '/images/carlino.jpg'
+}).save();
+*/
