@@ -14,7 +14,8 @@ router.get('', async function(req,res){
 
         res.status(200).json({
             success: true,
-            infoRazza: razza.infoSpecie
+            infoRazza: razza.infoSpecie,
+            imgRazza: razza.immagine
         });
     }
 })

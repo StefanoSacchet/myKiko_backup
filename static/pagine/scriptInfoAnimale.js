@@ -1,4 +1,6 @@
-var email = sessionStorage.getItem("email"); //Get user email
+let email = sessionStorage.getItem("email"); //Get user email
+
+let imgRazza;
 
 //Enable and disable button
 let btnModificaInfoAnimale = document.getElementById("gestisciAnimale");
@@ -43,19 +45,21 @@ function writeInfo(data){
     //console.log(data._id);
     sessionStorage.setItem("idAnimale",data._id); //Save pet's id
 
-    /*Add card*/
-    initCard(data);
-
     //Cerca info razza
     fetch('../api/v1/infoRazza?razza=' + data.razza)
     .then((resp) => resp.json()) // Transform the data into json
-    .then(function (data) {
+    .then(function (dataRazza) {
 
-        if(data.success){
-            document.getElementById("datiSpecie").innerHTML = data.infoRazza;
+        if(dataRazza.success){
+            imgRazza = dataRazza.imgRazza;
+            document.getElementById("datiSpecie").innerHTML = dataRazza.infoRazza;
         }else{
             document.getElementById("datiSpecie").innerHTML = "informazioni non trovate";
         }
+
+        /*Add card*/
+        initCard(data);
+
     })
     .catch(error => console.error(error)); // If there is any error you will catch them here
 }
@@ -67,7 +71,11 @@ function initCard(data){
     divCard.setAttribute("style","width: 18rem;");
 
     let img = document.getElementById("imgCard");
-    img.setAttribute("src",data.immagine);
+    if(data.immagine){ //if user has img
+        img.setAttribute("src",data.immagine);
+    }else{ //If user hasn't img use default
+        img.setAttribute("src",imgRazza);
+    }
     
     let h5 = document.getElementById("h5Card");    
     h5.textContent = data.nome;
