@@ -27,7 +27,7 @@ function confermaCredenziali(){
         }else if(data.message == "Empty inputs"){
             document.getElementById("paraDanger").innerHTML = "Compilare tutti i campi";
         }else{
-            document.getElementById("paraDanger").innerHTML = "Utente non trovato";
+            document.getElementById("paraDanger").innerHTML = "Effettuare di nuovo il login";
         }
     })
     .catch( error => console.error(error) ); // If there is any error you will catch them here

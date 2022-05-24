@@ -20,10 +20,15 @@ function conferma(){
     .then((resp) => resp.json()) // Transform the data into json
     .then(function(data){
         if(data.success){
+
             document.getElementById("paraMessage").innerHTML = "Modifiche applicate";
             document.location.href = 'infoAnimale.html';
+
         }else if(data.message == "Empty inputs"){
-            document.getElementById("paraMessage").innerHTML = "Compilare tutti i campi";
+
+            document.getElementById("paraDanger").innerHTML = "Compilare tutti i campi";
+        }else{
+            document.getElementById("paraDanger").innerHTML = "Effettuare di nuovo il login";
         }
     })
 }

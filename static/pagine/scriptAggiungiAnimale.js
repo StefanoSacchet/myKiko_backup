@@ -18,6 +18,19 @@ function conferma(){
     .then((resp) => resp.json()) // Transform the data into json
     .then(function(data){
 
+        if(data.success){
+
+            document.getElementById("paraMessage").innerHTML = "Animale aggiunto";
+            annulla();
+
+        }else if(data.message == "Empty inputs"){
+
+            document.getElementById("paraDanger").innerHTML = "Compilare tutti i campi";
+
+        }else{
+
+            document.getElementById("paraDanger").innerHTML = "Effettuare di nuovo il login";
+        }
     })
     .catch( error => console.error(error) ); // If there is any error you will catch them here
 }
