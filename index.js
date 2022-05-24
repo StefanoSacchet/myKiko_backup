@@ -14,8 +14,6 @@ app.locals.db = mongoose.connect(process.env.DB_URL)
         })
     });
 
-    /*mongodb+srv://prova:pronti@cluster0.bj5sk.mongodb.net/Cluster0?retryWrites=true&w=majority*/ 
-
 /*AGGIUNGE USER AL DATABSE*/
 /*new User({
     email: 'prova2',
