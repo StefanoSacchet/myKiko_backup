@@ -146,7 +146,7 @@ paths:
             $ref: '#/definitions/schemas'
       responses:
         201:
-          description: 'Data inserted'
+          description: ''
           schema:
             $ref: '#/definitions/schemas'
           examples:
@@ -157,6 +157,7 @@ paths:
                 eta: eta_animale
                 peso: peso_animale
                 codicechip: codicechip_animale
+                caratteristicaSpecie: questo animale...
         400:
           description: Empty imputs
           examples:
@@ -166,7 +167,8 @@ paths:
                 razza: 
                 eta: 
                 peso: 
-                codicechip: 
+                codicechip:
+                caratteristicaSpecie: 
   
 components:
   schemas:
@@ -179,15 +181,16 @@ components:
         - eta
         - peso
         - CodiceChip
+        - caratteristicaSpecie
       properties:
         email:
-          type: string
+          type: String
           description: 'User email'
         nome:
-          type: string
+          type: String
           description: 'Nome animale'
         razza:
-          type: string
+          type: String
           description: 'Razza animale'
         eta:
           type: Number
@@ -198,6 +201,10 @@ components:
         codiceChip:
           type: String
           description: 'Codice del chip identificativo'
+        caratteristicaSpecie:
+          type: String
+          description: descrizione caratteristica specie
+         
     User:
       type: object
       required:
