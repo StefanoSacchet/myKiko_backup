@@ -41,3 +41,10 @@ app.locals.db = mongoose.connect(process.env.DB_URL)
         immagine: '/images/cane2.jpeg'
     }]
 }).save();*/
+
+/*AGGIUNGE RAZZA AL DATABSE*/
+/*new Razza({
+    razza: 'siamese',
+    infoSpecie: 'Il gatto siamese è uno dei pochi da essere riconosciuto quasi da tutti, con i suoi caratteristici occhi chiari e le estremità del corpo di una tonalità più scura rispetto al mantello.Secondo alcuni, questo gatto riesce anche a comunicare bene con il suo padrone, modulando il tono e il ritmo del suo miagolio. Non è raro inoltre riuscirlo a portare al guinzaglio, come se fosse un piccolo cagnolino.',
+    immagine: '/images/siamese.jpeg'
+}).save();*/
