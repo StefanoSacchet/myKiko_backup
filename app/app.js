@@ -8,6 +8,7 @@ const modificaCredenziali = require('./modificaCredenziali.js');
 const modificaInfoAnimale = require('./modificaInfoAnimale.js');
 const aggiungiAnimale = require('./aggiungiAnimale.js');
 const infoRazza = require('./infoRazza.js');
+const deleteAccount = require('./deleteAccount.js');
 
 //Configure Express.js parsing middleware
 app.use(express.json());
@@ -36,6 +37,9 @@ app.use('/api/v1/aggiungiAnimale',aggiungiAnimale);
 
 //Get info razza
 app.use('/api/v1/infoRazza',infoRazza);
+
+//Delete account
+app.use('/api/v1/deleteAccount',deleteAccount);
 
 //Default 404 handler
 app.use((req, res) => {

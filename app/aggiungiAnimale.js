@@ -10,13 +10,12 @@ router.post('', async function(req,res){
     let etaNew = req.body.etaNew;
     let pesoNew = req.body.pesoNew;
     let codiceChipNew = req.body.codiceChipNew;
-    let caratteristicheSpecie = req.body.infoSpecie;
 
-    if(nomeNew == "" || razzaNew == "" || etaNew == "" || pesoNew == "" || codiceChipNew == "" || caratteristicheSpecie == ""){
+    if(nomeNew == "" || razzaNew == "" || etaNew == "" || pesoNew == "" || codiceChipNew == ""){
         res.status(400).json({ success: false, message: 'Empty inputs' })
     }else{
 
-        let user = await User.updateOne( { email: userEmail }, { $push: { "animale": {nome: nomeNew, razza: razzaNew, eta: etaNew, peso: pesoNew, codiceChip: codiceChipNew, infoSpecie: caratteristicheSpecie} } });
+        let user = await User.updateOne( { email: userEmail }, { $push: { "animale": {nome: nomeNew, razza: razzaNew, eta: etaNew, peso: pesoNew, codiceChip: codiceChipNew} } });
 
         //console.log(user);
 

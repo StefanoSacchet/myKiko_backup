@@ -8,12 +8,11 @@ function conferma(){
     let eta = document.getElementById("eta").value;
     let peso = document.getElementById("peso").value;
     let codiceChip = document.getElementById("codiceChip").value;
-    let caratteristicheSpecie = document.getElementById("caratteristicheSpecie").value;
 
     fetch('../api/v1/aggiungiAnimale', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify( { email: email, nomeNew: nome, razzaNew: razza, etaNew: eta, pesoNew: peso, codiceChipNew: codiceChip, infoSpecie: caratteristicheSpecie } ),
+        body: JSON.stringify( { email: email, nomeNew: nome, razzaNew: razza, etaNew: eta, pesoNew: peso, codiceChipNew: codiceChip } ),
     })
     .then((resp) => resp.json()) // Transform the data into json
     .then(function(data){

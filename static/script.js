@@ -4,8 +4,6 @@ var loggedUser = {};
 let buttonLogin = document.getElementById("login");
 let buttonIscriviti = document.getElementById("iscriviti");
 
-let count = 0; //Print only once 'Username o password sbagliati'
-
 //This function is called when login button is pressed
 function login() {
 
@@ -36,18 +34,8 @@ function login() {
         loggedUser.self = data.self;
 
         if(!data.success){
-
-            //Print only once 'Username o password sbagliati'
-            if(count == 0){
-                var para = document.createElement("p");
-                var nodo = document.createTextNode("Username o password sbagliati");
-                para.appendChild(nodo);
-                var element = document.getElementById("loginform");
-                element.appendChild(para);
-                count++;
-            }
+            document.getElementById("paraDanger").innerHTML = "Username o password sbagliati";
         }else{
-            count = 0;
             sessionStorage.setItem("email",email);
             document.location.href='home.html';
         }
@@ -84,11 +72,9 @@ function signUp(){
         //console.log(data); /*problema: id = undefinfed*/
 
         if(data.success){
-            var para = document.createElement("p");
-            var nodo = document.createTextNode("Credenziali registrate, effetuare il login");
-            para.appendChild(nodo);
-            var element = document.getElementById("loginform");
-            element.appendChild(para);
+            document.getElementById("paraInfo").innerHTML = "Credenziali registrate, effetuare il login";
+        }else{
+            document.getElementById("paraDanger").innerHTML = "Utente già iscritto";
         }
 
         return;
