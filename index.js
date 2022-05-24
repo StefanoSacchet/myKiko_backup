@@ -15,27 +15,28 @@ app.locals.db = mongoose.connect(process.env.DB_URL)
 
 /*AGGIUNGE USER AL DATABSE*/
 /*new User({
-    email: 'prova1',
-    password: '1',
+    email: 'prova2',
+    password: '2',
     animale: [{
-        nome: 'Theodore',
-        razza: 'gatto',
-        eta: 7,
-        peso: 8.1,
-        codiceChip: 'abc',
-        infoSpecie: "Il gatto domestico è un mammifero carnivoro appartenente alla famiglia dei felidi. Dall’indole essenzialmente territoriale e crepuscolare, il gatto è un" +
-        "predatore di piccoli animali, specialmente roditori. Per comunicare utilizza vari vocalizzi, le fusa, le posizioni del corpo e i feromoni. Prevalentemente domestico," +
-        "il gatto può essere addestrato ad accettare istruzioni semplici e può imparare da solo a manipolare svariati meccanismi, anche complessi, tra cui le maniglie delle porte" +
-        "o le chiusure delle gabbie."
+        nome: 'Packy',
+        razza: 'pappagallo',
+        eta: 2,
+        peso: 1.2,
+        codiceChip: 'fff',
+        infoSpecie: "Gli psittaciformi sono un ordine di uccelli neorniti comprendente numerose specie di animali noti col nome comune di" +
+        "pappagalli.Con quattro famiglie l'ordineè ben diffuso e rappresentato nelle aree tropicali e subtropicali della maggior parte del" + 
+        "Pianeta: in particolare, picchi di biodiversità vengono raggiunti in AmericaMeridionale ed Australasia. Alcune specie sono native" + 
+        "delle aree temperate dell'emisfero australe.",
+        immagine: '/images/pappagallo.jpg'
     }, {
-        nome: 'Ariel',
-        razza: 'gatto',
-        eta: 7,
-        peso: 6.2,
-        codiceChip: '123',
-        infoSpecie: "Il gatto domestico è un mammifero carnivoro appartenente alla famiglia dei felidi. Dall’indole essenzialmente territoriale e crepuscolare, il gatto è un" +
-        "predatore di piccoli animali, specialmente roditori. Per comunicare utilizza vari vocalizzi, le fusa, le posizioni del corpo e i feromoni. Prevalentemente domestico," +
-        "il gatto può essere addestrato ad accettare istruzioni semplici e può imparare da solo a manipolare svariati meccanismi, anche complessi, tra cui le maniglie delle porte" +
-        "o le chiusure delle gabbie."
+        nome: 'Bobo',
+        razza: 'cane',
+        eta: 4,
+        peso: 9.2,
+        codiceChip: 'aaa',
+        infoSpecie: "Il cane è un mammifero appartenente all'ordine Carnivora, della famiglia dei canidi. Con l'avvento dell'addomesticamento" + 
+        "si è distinto dal lupo di cui èconsiderato una sottospecie. Si tratta di un canino di taglia da piccola a grande. Il colore varia a" + 
+        "seconda della discendenza: bianco, nero, rosso, marrone, ecc.La coda varia in forma e lunghezza; in alcune razze è assente.",
+        immagine: '/images/cane2.jpeg'
     }]
 }).save();*/

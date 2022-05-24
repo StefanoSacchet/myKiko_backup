@@ -8,10 +8,11 @@ const animal = new Schema({
     eta: Number,
     peso: Number,
     codiceChip: String,
-    infoSpecie: String
+    infoSpecie: String,
+    immagine: String
 })
 
-module.exports = mongoose.model('User2', new Schema({
+module.exports = mongoose.model('User3', new Schema({
 	email: String,
 	password: String,
 	animale: [animal]

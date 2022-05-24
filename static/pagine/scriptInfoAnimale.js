@@ -56,7 +56,7 @@ function initCard(data){
     divCard.setAttribute("style","width: 18rem;");
 
     let img = document.getElementById("imgCard");
-    img.setAttribute("src","/images/cane.jpg");
+    img.setAttribute("src",data.immagine);
     
     let h5 = document.getElementById("h5Card");    
     h5.textContent = data.nome;
