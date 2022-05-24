@@ -2,6 +2,7 @@ const app = require('./app/app.js');
 const mongoose = require('mongoose');
 
 const User = require('./app/models/user');
+const Razza = require('./app/models/razza');
 
 const port = process.env.port || 8080;
 

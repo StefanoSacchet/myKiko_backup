@@ -46,7 +46,18 @@ function writeInfo(data){
     /*Add card*/
     initCard(data);
 
-    document.getElementById("datiSpecie").innerHTML = data.infoSpecie;
+    //Cerca info razza
+    fetch('../api/v1/infoRazza?razza=' + data.razza)
+    .then((resp) => resp.json()) // Transform the data into json
+    .then(function (data) {
+
+        if(data.success){
+            document.getElementById("datiSpecie").innerHTML = data.infoRazza;
+        }else{
+            document.getElementById("datiSpecie").innerHTML = "informazioni non trovate";
+        }
+    })
+    .catch(error => console.error(error)); // If there is any error you will catch them here
 }
 
 function initCard(data){
@@ -65,7 +76,6 @@ function initCard(data){
     + " anni<br>Peso: " + data.peso + " Kg<br>CodiceChip: " + data.codiceChip;
 }
 
-//Go to page "modificaInfoAnimale.html"
 function modificaInfoAnimale(){
     document.location.href = 'modificaInfoAnimale.html';
 }

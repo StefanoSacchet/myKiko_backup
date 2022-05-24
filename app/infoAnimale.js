@@ -16,7 +16,6 @@ router.get('', async function(req,res){
 
         res.status(200).json({
             success: true,
-            email: user.email,
             animale: user.animale
         });
     }
