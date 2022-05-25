@@ -24,10 +24,6 @@ app.locals.db = mongoose.connect(process.env.DB_URL)
         eta: 2,
         peso: 1.2,
         codiceChip: 'fff',
-        infoSpecie: "Gli psittaciformi sono un ordine di uccelli neorniti comprendente numerose specie di animali noti col nome comune di" +
-        "pappagalli.Con quattro famiglie l'ordineè ben diffuso e rappresentato nelle aree tropicali e subtropicali della maggior parte del" + 
-        "Pianeta: in particolare, picchi di biodiversità vengono raggiunti in AmericaMeridionale ed Australasia. Alcune specie sono native" + 
-        "delle aree temperate dell'emisfero australe.",
         immagine: '/images/pappagallo.jpg'
     }, {
         nome: 'Bobo',
@@ -35,10 +31,13 @@ app.locals.db = mongoose.connect(process.env.DB_URL)
         eta: 4,
         peso: 9.2,
         codiceChip: 'aaa',
-        infoSpecie: "Il cane è un mammifero appartenente all'ordine Carnivora, della famiglia dei canidi. Con l'avvento dell'addomesticamento" + 
-        "si è distinto dal lupo di cui èconsiderato una sottospecie. Si tratta di un canino di taglia da piccola a grande. Il colore varia a" + 
-        "seconda della discendenza: bianco, nero, rosso, marrone, ecc.La coda varia in forma e lunghezza; in alcune razze è assente.",
-        immagine: '/images/cane2.jpeg'
+        immagine: '/images/cane.jpg'
+    }],
+    impegni: [{
+        impegno: 'Toiletatura',
+        animale: 'Packy',
+        luogo: 'Clinica Maske',
+        data: new Date("2022-11-13T11:22:33Z")
     }]
 }).save();*/
 
