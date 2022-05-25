@@ -188,6 +188,22 @@ paths:
           description: 'account deleted'
         500:
           description: 'Delete failed. User not found.'
+          
+   /inforazza:
+    x-summary: Informazioni razza
+    get:
+      summary: Visualizza le informazioni sulla razza dell'animale
+      responses:
+        200:
+          description: Visualizza info
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/schemas'
+          examples:
+            application/json:
+            - caratteristicheSpecie: spiegazione della razza
+              immagine: /images/esempioaniamle.jpeg
                 
   
 components:
@@ -224,6 +240,9 @@ components:
         caratteristicaSpecie:
           type: String
           description: descrizione caratteristica specie
+        immagine:
+          type: string
+          description: inidirizzo che conduce all'immagine corretta
          
     User:
       type: object
