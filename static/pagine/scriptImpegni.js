@@ -5,10 +5,14 @@ function mostraImpegni(){
     fetch('../api/v1/impegni?email=' + email)
     .then((resp) => resp.json()) // Transform the data into json
     .then(function (data) {
-        //console.log(data.impegno);
+        console.log(data.impegno);
 
         if(data.success){
-            initCard(data.impegno);
+            if(data.impegno.length != 0){
+                initCard(data.impegno);
+            }else{
+                document.getElementById("paraDanger").innerHTML = "Nessun impegno trovato";
+            }
         }else{
             /* Ste Aggiungi*/
         }
