@@ -38,6 +38,11 @@ app.locals.db = mongoose.connect(process.env.DB_URL)
         animale: 'Packy',
         luogo: 'Clinica Maske',
         data: new Date("2022-11-13T11:22:33Z")
+    }, {
+        impegno: 'Passeggiata',
+        animale: 'Bobo',
+        luogo: 'Parco melta',
+        data: new Date("2024-02-01T23:11:59Z")
     }]
 }).save();*/
 
