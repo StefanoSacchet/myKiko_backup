@@ -87,7 +87,7 @@ paths:
               schema:
                 type: string
                 items:
-                  $ref: '#/components/schemas/InfoAnimale'
+                  $ref: '#/components/schemas/Animale'
   
   /modificaCredenziali:
     put:
@@ -100,7 +100,7 @@ paths:
             schema:
               type: array
               items:
-                $ref: '#/definitions/schemas'
+                $ref: '#/definitions/schemas/User'
             examples:
               application/json:
                 - emailNew: newemail@gmail.com
@@ -124,7 +124,7 @@ paths:
            schema:
               type: array
               items:
-                $ref: '#/definitions/schemas'
+                $ref: '#/definitions/schemas/Animale'
         '400':
            description: 'Empty inputs fields'
             headers:
@@ -143,7 +143,7 @@ paths:
           in: body
           required: true
           schema:
-            $ref: '#/definitions/schemas'
+            $ref: '#/definitions/schemas/Animale'
       responses:
         201:
           description: 'Data inserted'
@@ -169,6 +169,42 @@ paths:
                 peso: 
                 codicechip:
                 caratteristicheSpecie:
+                
+                
+  /deleteAccount:
+    x-summary: 
+    delete:
+      description: >-
+        Puoi cancellare il tuo account corrente e tutti i dati ad esso relativi.
+      summary: Elimina account
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/schemas/User'
+      responses:
+        200:
+          description: 'account deleted'
+        500:
+          description: 'Delete failed. User not found.'
+          
+   /inforazza:
+    x-summary: Informazioni razza
+    get:
+      summary: Visualizza le informazioni sulla razza dell'animale
+      responses:
+        200:
+          description: Visualizza info
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/schemas'
+          examples:
+            application/json:
+            - caratteristicheSpecie: spiegazione della razza
+              immagine: /images/esempioaniamle.jpeg
+                
   
 components:
   schemas:
@@ -204,6 +240,9 @@ components:
         caratteristicaSpecie:
           type: String
           description: descrizione caratteristica specie
+        immagine:
+          type: string
+          description: inidirizzo che conduce all'immagine corretta
          
     User:
       type: object
