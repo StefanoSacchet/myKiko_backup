@@ -55,7 +55,7 @@ function annullaDelete(){
 }
 
 function impegni(){
-    
+    document.location.href = '/pagine/impegni.html';
 }
 
 function cibo(){
