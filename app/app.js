@@ -10,6 +10,7 @@ const aggiungiAnimale = require('./aggiungiAnimale.js');
 const infoRazza = require('./infoRazza.js');
 const deleteAccount = require('./deleteAccount.js');
 const impegni = require('./impegni.js');
+const aggiungiImpegno = require('./aggiungiImpegno.js');
 
 //Configure Express.js parsing middleware
 app.use(express.json());
@@ -19,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/', express.static('static'));
 
 //Authentication routing and middleware
-app.use('/api/v1/authentication', authentication);
+app.use('/api/v1/authentications', authentication);
 
 //Registration routing and middleware
 app.use('/api/v1/registration', registration);
@@ -44,6 +45,9 @@ app.use('/api/v1/deleteAccount',deleteAccount);
 
 //Get impegni
 app.use('/api/v1/impegni',impegni);
+
+//Add impegno
+app.use('/api/v1/aggiungiImpegno',aggiungiImpegno);
 
 //Default 404 handler
 app.use((req, res) => {

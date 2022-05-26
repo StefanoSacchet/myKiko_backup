@@ -2,17 +2,22 @@ var email = sessionStorage.getItem("email");
 
 function mostraImpegni(){
 
+
+    let btnMostraImpegni = document.getElementById("mostraImpegni");
+    
+
+    btnMostraImpegni.disabled = true; //Disable button
+    
+
+
+
     fetch('../api/v1/impegni?email=' + email)
     .then((resp) => resp.json()) // Transform the data into json
     .then(function (data) {
-        console.log(data.impegno);
+        //console.log(data.impegno);
 
         if(data.success){
-            if(data.impegno.length != 0){
-                initCard(data.impegno);
-            }else{
-                document.getElementById("paraDanger").innerHTML = "Nessun impegno trovato";
-            }
+            initCard(data.impegno);
         }else{
             /* Ste Aggiungi*/
         }
@@ -57,6 +62,9 @@ function creaCard(impegno){
 }
 
 function aggiungiImpegno(){
+    
+    document.location.href = 'aggiungiImpegno.html'
+    
 }
 
 //Go back to home screen
