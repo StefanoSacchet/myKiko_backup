@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">67.5% </span>
+                <span class="strong">17.5% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>27/40</span>
+                <span class='fraction'>7/40</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">85.71% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>6/7</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">67.5% </span>
+                <span class="strong">17.5% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>27/40</span>
+                <span class='fraction'>7/40</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -107,24 +107,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -138,32 +120,50 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">const express = require('express');
 const router = express.Router();
 const User = require('./models/user');// get our mongoose model
 &nbsp;
 router.post('', async function(req,res){
-&nbsp;
-    let userEmail = req.body.email;
-    let nomeNew = req.body.nomeNew;
-    let razzaNew = req.body.razzaNew;
-    let etaNew = req.body.etaNew;
-    let pesoNew = req.body.pesoNew;
-    let codiceChipNew = req.body.codiceChipNew;
-&nbsp;
-    if(nomeNew == "" || razzaNew == "" || etaNew == "" || pesoNew == "" || codiceChipNew == ""){
-        res.status(400).json({ success: false, message: 'Empty inputs' })
-    }else{
-&nbsp;
-        //Find the user
-	    let user = await User.findOne({
-		    email: userEmail
-	    }).exec();
-&nbsp;
-<span class="branch-0 cbranch-no" title="branch not covered" >        if(!user){</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    let userEmail = req.body.email;</span>
+<span class="cstat-no" title="statement not covered" >    let nomeNew = req.body.nomeNew;</span>
+<span class="cstat-no" title="statement not covered" >    let razzaNew = req.body.razzaNew;</span>
+<span class="cstat-no" title="statement not covered" >    let etaNew = req.body.etaNew;</span>
+<span class="cstat-no" title="statement not covered" >    let pesoNew = req.body.pesoNew;</span>
+<span class="cstat-no" title="statement not covered" >    let codiceChipNew = req.body.codiceChipNew;</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    if(nomeNew == "" || razzaNew == "" || etaNew == "" || pesoNew == "" || codiceChipNew == ""){</span>
+<span class="cstat-no" title="statement not covered" >        res.status(400).json({ success: false, message: 'Empty inputs' })</span>
+<span class="cstat-no" title="statement not covered" >    }else{</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >        //Find the user</span>
+<span class="cstat-no" title="statement not covered" >	    let user = await User.findOne({</span>
+<span class="cstat-no" title="statement not covered" >		    email: userEmail</span>
+<span class="cstat-no" title="statement not covered" >	    }).exec();</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >        if(!user){</span>
 <span class="cstat-no" title="statement not covered" >            res.json( { success: false, message: 'User not found' } )</span>
 <span class="cstat-no" title="statement not covered" >        }else{</span>
 <span class="cstat-no" title="statement not covered" ></span>
@@ -177,8 +177,8 @@ router.post('', async function(req,res){
 <span class="cstat-no" title="statement not covered" >                res.json({ success: false, message: 'Error. add failed' })</span>
 <span class="cstat-no" title="statement not covered" >            }</span>
 <span class="cstat-no" title="statement not covered" >        }</span>
-    }
-});
+<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="cstat-no" title="statement not covered" >});</span>
 &nbsp;
 module.exports = router;</pre></td></tr></table></pre>
 
@@ -187,7 +187,7 @@ module.exports = router;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Thu May 26 2022 09:50:15 GMT+0200 (Ora legale dell’Europa centrale)
+                at Thu May 26 2022 10:32:30 GMT+0200 (Ora legale dell’Europa centrale)
             </div>
         <script src="../prettify.js"></script>
         <script>
