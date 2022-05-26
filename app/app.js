@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/', express.static('static'));
 
 //Authentication routing and middleware
-app.use('/api/v1/authentications', authentication);
+app.use('/api/v1/authentication', authentication);
 
 //Registration routing and middleware
 app.use('/api/v1/registration', registration);

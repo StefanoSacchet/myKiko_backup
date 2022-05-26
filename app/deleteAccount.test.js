@@ -7,7 +7,7 @@ describe('DELETE /api/v1/deleteAccount', () => {
     let connection;
 
     beforeAll( async () => {
-        jest.setTimeout(8000);
+        jest.setTimeout(10000); //Da cambiare in 8000
         jest.unmock('mongoose');
         connection = await  mongoose.connect(process.env.DB_URL);
         console.log('Database connected!');

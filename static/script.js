@@ -20,7 +20,7 @@ function login() {
     //document.location.href='/pagine/home.html';
     //document.getElementById("sottoTitolo").innerHTML = "ciao"; //"email: " + email + " , password: " + password;
     
-    fetch('../api/v1/authentications', {
+    fetch('../api/v1/authentication', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify( { email: email, password: password } ),
@@ -33,11 +33,17 @@ function login() {
         loggedUser.id = data.id;
         loggedUser.self = data.self;
 
-        if(!data.success){
-            document.getElementById("paraDanger").innerHTML = "Username o password sbagliati";
-        }else{
+        console.log(data.message);
+
+        if(data.success){
             sessionStorage.setItem("email",email);
             document.location.href='home.html';
+        }else{
+            if(data.message == "Empty inputs"){
+                document.getElementById("paraDanger").innerHTML = "Compilare tutti i campi";
+            }else if(data.message == "Authentication failed. User not found."){
+                document.getElementById("paraDanger").innerHTML = "Username o password sbagliati";
+            }
         }
 
         // loggedUser.id = loggedUser.self.substring(loggedUser.self.lastIndexOf('/') + 1);
