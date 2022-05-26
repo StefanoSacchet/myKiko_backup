@@ -10,6 +10,7 @@ const aggiungiAnimale = require('./aggiungiAnimale.js');
 const infoRazza = require('./infoRazza.js');
 const deleteAccount = require('./deleteAccount.js');
 const impegni = require('./impegni.js');
+const aggiungiImpegno = require('./aggiungiImpegno.js');
 const infoAlimentazione = require('./infoAlimentazione.js');
 
 //Configure Express.js parsing middleware
@@ -45,6 +46,9 @@ app.use('/api/v1/deleteAccount',deleteAccount);
 
 //Get impegni
 app.use('/api/v1/impegni',impegni);
+
+//Add impegno
+app.use('/api/v1/aggiungiImpegno',aggiungiImpegno);
 
 //Get info alimentazione
 app.use('/api/v1/infoAlimentazione',infoAlimentazione);

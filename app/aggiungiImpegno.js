@@ -9,15 +9,12 @@ router.post('', async function(req,res){
     let animaleNew = req.body.animaleNew;
     let luogoNew = req.body.luogoNew;
     let dataNew = req.body.dataNew;
-    
 
     if(impegnoNew == "" || animaleNew == "" || luogoNew == "" || dataNew == ""){
         res.status(400).json({ success: false, message: 'Empty inputs' })
     }else{
 
         let user = await User.updateOne( { email: userEmail }, { $push: { "impegni": {impegno: impegnoNew, animale: animaleNew, luogo: luogoNew, data: dataNew} } });
-
-        //console.log(user);
 
         if(user.acknowledged == true){
             res.status(201).json({ success: true, message: 'Data inserted' })

@@ -7,7 +7,6 @@ function conferma(){
     let animale = document.getElementById("animale").value;
     let luogo = document.getElementById("luogo").value;
     let data = document.getElementById("data").value;
-    
 
     fetch('../api/v1/aggiungiImpegno', {
         method: 'POST',
@@ -27,7 +26,6 @@ function conferma(){
             document.getElementById("paraDanger").innerHTML = "Compilare tutti i campi";
 
         }else{
-
             document.getElementById("paraDanger").innerHTML = "Effettuare di nuovo il login";
         }
     })
