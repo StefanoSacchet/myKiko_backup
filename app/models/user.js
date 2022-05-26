@@ -20,7 +20,7 @@ const animal = new Schema({
     immagine: String
 })
 
-module.exports = mongoose.model('User4', new Schema({
+module.exports = mongoose.model('User5', new Schema({
 	email: String,
 	password: String,
 	animale: [animal],

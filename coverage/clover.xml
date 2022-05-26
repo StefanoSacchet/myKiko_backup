@@ -1,41 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1653495139517" clover="3.2.0">
-  <project timestamp="1653495139518" name="All files">
-    <metrics statements="378" coveredstatements="229" conditionals="13" coveredconditionals="11" methods="0" coveredmethods="0" elements="391" coveredelements="240" complexity="0" loc="378" ncloc="378" packages="2" files="12" classes="12"/>
+<coverage generated="1653547935521" clover="3.2.0">
+  <project timestamp="1653547935521" name="All files">
+    <metrics statements="388" coveredstatements="258" conditionals="22" coveredconditionals="19" methods="0" coveredmethods="0" elements="410" coveredelements="277" complexity="0" loc="388" ncloc="388" packages="2" files="12" classes="12"/>
     <package name="app">
-      <metrics statements="342" coveredstatements="193" conditionals="13" coveredconditionals="11" methods="0" coveredmethods="0"/>
+      <metrics statements="352" coveredstatements="222" conditionals="22" coveredconditionals="19" methods="0" coveredmethods="0"/>
       <file name="aggiungiAnimale.js" path="C:\Users\sacch\Desktop\myKikoLocale\app\aggiungiAnimale.js">
-        <metrics statements="30" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="40" coveredstatements="36" conditionals="9" coveredconditionals="8" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
+        <line num="5" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="14" count="3" type="cond" truecount="6" falsecount="0"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="23" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
         <line num="29" count="1" type="stmt"/>
         <line num="30" count="1" type="stmt"/>
+        <line num="31" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+        <line num="38" count="3" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
       </file>
       <file name="app.js" path="C:\Users\sacch\Desktop\myKikoLocale\app\app.js">
         <metrics statements="54" coveredstatements="51" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>

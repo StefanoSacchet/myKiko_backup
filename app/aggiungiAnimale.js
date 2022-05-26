@@ -15,14 +15,24 @@ router.post('', async function(req,res){
         res.status(400).json({ success: false, message: 'Empty inputs' })
     }else{
 
-        let user = await User.updateOne( { email: userEmail }, { $push: { "animale": {nome: nomeNew, razza: razzaNew, eta: etaNew, peso: pesoNew, codiceChip: codiceChipNew} } });
+        //Find the user
+	    let user = await User.findOne({
+		    email: req.body.email
+	    }).exec();
 
-        //console.log(user);
-
-        if(user.acknowledged == true){
-            res.status(201).json({ success: true, message: 'Data inserted' })
+        if(!user){
+            res.json( { success: false, message: 'User not found' } )
         }else{
-            res.json({ success: false, message: 'User not found' })
+
+            user = await User.updateOne( { email: userEmail }, { $push: { "animale": {nome: nomeNew, razza: razzaNew, eta: etaNew, peso: pesoNew, codiceChip: codiceChipNew} } });
+
+            //console.log(user);
+    
+            if(user.acknowledged == true){
+                res.status(201).json({ success: true, message: 'Data inserted' })
+            }else{
+                res.json({ success: false, message: 'Error. add failed' })
+            }
         }
     }
 });
