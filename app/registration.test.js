@@ -40,6 +40,6 @@ describe('POST /api/v1/registration', () => {
           .post('/api/v1/registration')
           .send({ email: 'tmp', password: 'tmp' }) // sends a JSON post body
           .expect('Content-Type', /json/)
-          .expect(201, { success: true, message: 'User subscribed', self: 'api/v1/undefined' } );
+          .expect(201);
     });*/
 });
