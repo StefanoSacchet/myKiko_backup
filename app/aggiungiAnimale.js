@@ -17,7 +17,7 @@ router.post('', async function(req,res){
 
         //Find the user
 	    let user = await User.findOne({
-		    email: req.body.email
+		    email: userEmail
 	    }).exec();
 
         if(!user){

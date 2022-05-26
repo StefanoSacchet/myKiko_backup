@@ -19,7 +19,7 @@ describe('POST /api/v1/aggiungiAnimale', () => {
         console.log("Database connection closed");
     });
 
-    test('DELETE /api/v1/aggiungiAnimale with empty input', () => {
+    test('POST /api/v1/aggiungiAnimale with empty input', () => {
         return request(app)
           .post('/api/v1/aggiungiAnimale')
           .send( { email: 'prova1', nomeNew: '', razzaNew: 'gatto', etaNew: 3, pesoNew: 3.5, codiceChipNew: "123" } )
@@ -27,7 +27,7 @@ describe('POST /api/v1/aggiungiAnimale', () => {
           .expect( { success: false, message: 'Empty inputs' } );
     });
 
-    test('DELETE /api/v1/aggiungiAnimale with wrong email', () => {
+    test('POST /api/v1/aggiungiAnimale with wrong email', () => {
         return request(app)
           .post('/api/v1/aggiungiAnimale')
           .send( { email: 'wrong', nomeNew: 'Fufi', razzaNew: 'gatto', etaNew: 3, pesoNew: 3.5, codiceChipNew: "123" } )
@@ -35,7 +35,7 @@ describe('POST /api/v1/aggiungiAnimale', () => {
           .expect( { success: false, message: 'User not found' } );
     });
 
-    test('DELETE /api/v1/aggiungiAnimale with correct info', () => {
+    test('POST /api/v1/aggiungiAnimale with correct info', () => {
         return request(app)
           .post('/api/v1/aggiungiAnimale')
           .send( { email: 'testing', nomeNew: 'Fufi', razzaNew: 'gatto', etaNew: 3, pesoNew: 3.5, codiceChipNew: "123" } )
