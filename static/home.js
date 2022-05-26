@@ -59,7 +59,7 @@ function impegni(){
 }
 
 function cibo(){
-    
+    document.location.href = '/pagine/cibo.html';
 }
 
 function smarThings(){

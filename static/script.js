@@ -20,7 +20,7 @@ function login() {
     //document.location.href='/pagine/home.html';
     //document.getElementById("sottoTitolo").innerHTML = "ciao"; //"email: " + email + " , password: " + password;
     
-    fetch('../api/v1/authentications', {
+    fetch('../api/v1/authentication', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify( { email: email, password: password } ),
