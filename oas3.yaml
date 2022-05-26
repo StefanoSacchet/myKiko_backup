@@ -218,7 +218,7 @@ components:
         - eta
         - peso
         - CodiceChip
-        - caratteristicaSpecie
+        - infoSpecie
       properties:
         email:
           type: String
@@ -238,7 +238,7 @@ components:
         codiceChip:
           type: String
           description: 'Codice del chip identificativo'
-        caratteristicaSpecie:
+        infoSpecie:
           type: String
           description: descrizione caratteristica specie
         immagine:
