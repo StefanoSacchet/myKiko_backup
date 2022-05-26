@@ -204,7 +204,8 @@ paths:
             application/json:
             - caratteristicheSpecie: spiegazione della razza
               immagine: /images/esempioaniamle.jpeg
-                
+         500:
+          description: 'Delete failed. Razza not found.'  
   
 components:
   schemas:
