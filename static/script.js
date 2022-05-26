@@ -33,11 +33,13 @@ function login() {
         loggedUser.id = data.id;
         loggedUser.self = data.self;
 
-        if(!data.success){
-            document.getElementById("paraDanger").innerHTML = "Username o password sbagliati";
-        }else{
+        if(data.success){
             sessionStorage.setItem("email",email);
             document.location.href='home.html';
+        }else if(data.message == "Authentication failed. User not found."){
+            document.getElementById("paraDanger").innerHTML = "Username o password sbagliati";
+        }else{
+            document.getElementById("paraDanger").innerHTML = "Compilare tutti i campi";
         }
 
         // loggedUser.id = loggedUser.self.substring(loggedUser.self.lastIndexOf('/') + 1);
