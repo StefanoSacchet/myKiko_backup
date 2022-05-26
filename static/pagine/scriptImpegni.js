@@ -8,7 +8,7 @@ fetch('../api/v1/impegni?email=' + email)
     if(data.success){
         initCard(data.impegno);
     }else{
-        /* Ste Aggiungi*/
+        document.getElementById("paraDanger").innerHTML = "Errore, rifare il login";
     } 
 })
 .catch(error => console.error(error)); // If there is any error you will catch them here
