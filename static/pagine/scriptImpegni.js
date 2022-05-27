@@ -50,7 +50,7 @@ function creaCard(impegno){
     btnModifica.onclick = () => {
         modificaImpegno(impegni, btnModifica.id);
     };
-    btnModifica.innerHTML = "Modifica evento";
+    btnModifica.innerHTML = "Modifica impegno";
 
     var div = document.createElement("div");
     div.setAttribute("class","card-body");
@@ -62,7 +62,7 @@ function creaCard(impegno){
 
     var divCard = document.createElement("div");
     divCard.setAttribute("class","card");
-    divCard.setAttribute("style","width: 20rem;");
+    divCard.setAttribute("style","width: 21rem;");
 
     divCard.appendChild(div);
 
