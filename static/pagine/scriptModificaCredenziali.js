@@ -8,7 +8,7 @@ function confermaCredenziali(){
 
     document.getElementById("paraMessage").innerHTML = ""; //Reset paragraph
 
-    fetch('/api/v1/modificaCredenziali', {
+    fetch('/api/v1/userAccount/modificaCredenziali', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify( { emailOld: emailOld, emailNew: emailNew, passwordNew: passwordNew } ),
@@ -21,8 +21,9 @@ function confermaCredenziali(){
         if(data.success){
 
             document.getElementById("paraMessage").innerHTML = "Modifiche applicate";
+            sessionStorage.clear(); //Clear user data
             //sleep(2);
-            annullaCredenziali(); //Go back to home screen
+            document.location.href = '/index.html'; //Go back to login
 
         }else if(data.message == "Empty inputs"){
             document.getElementById("paraDanger").innerHTML = "Compilare tutti i campi";
