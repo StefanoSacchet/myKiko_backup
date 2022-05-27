@@ -1,4 +1,5 @@
 function conferma(){
+   
     let email = sessionStorage.getItem("email"); //Get user's email
     let idImpegno = sessionStorage.getItem("idImpegno"); //Get impegno's id
     sessionStorage.removeItem("idImpegno");
@@ -12,10 +13,9 @@ function conferma(){
     let luogo = document.getElementById("luogo").value;
     let data = document.getElementById("data").value;
     
-
     document.getElementById("paraMessage").value = "";
 
-    fetch('/api/v1/modificaImpegno', {
+    fetch('/api/v1/impegniAnimali/modificaImpegno', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify( { email: email, id: idImpegno, impegnoNew: impegno, animaleNew: animale, luogoNew: luogo, dataNew: data} ),
@@ -35,9 +35,6 @@ function conferma(){
         }
     })
 }
-
-
-
 
 function annulla(){
     document.location.href = 'impegni.html';

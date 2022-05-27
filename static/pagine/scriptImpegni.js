@@ -3,7 +3,7 @@ var email = sessionStorage.getItem("email");
 var count = 0;
 var impegni = {};
 
-fetch('../api/v1/impegni?email=' + email)
+fetch('../api/v1/impegniAnimali/impegni?email=' + email)
 .then((resp) => resp.json()) // Transform the data into json
 .then(function (data) {
     //console.log(data.impegno);
@@ -77,7 +77,7 @@ function creaCard(impegno){
 function eliminaImpegno(impegni, btnId){
     //console.log(impegni[btnId]._id);
 
-    fetch('../api/v1/deleteImpegno', {
+    fetch('../api/v1/impegniAnimali/deleteImpegno', {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify( { email: email, idImpegno: impegni[btnId]._id } ),

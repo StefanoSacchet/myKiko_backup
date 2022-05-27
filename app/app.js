@@ -1,14 +1,11 @@
 const express = require('express');
 const app = express();
 
-const impegni = require('./impegni.js');
-const aggiungiImpegno = require('./aggiungiImpegno.js');
-const deleteImpegno = require('./deleteImpegno.js');
 const infoAlimentazione = require('./infoAlimentazione.js');
-const modificaImpegno = require('./modificaImpegno.js');
 
-const animali = require('./animali.js');
 const userAccount = require('./userAccount.js');
+const animali = require('./animali.js');
+const impegniAnimali = require('./impegniAnimali.js');
 
 //Configure Express.js parsing middleware
 app.use(express.json());
@@ -23,20 +20,11 @@ app.use('/api/v1/userAccount',userAccount);
 //Apis for animali
 app.use('/api/v1/animali',animali);
 
-//Get impegni
-app.use('/api/v1/impegni',impegni);
-
-//Add impegno
-app.use('/api/v1/aggiungiImpegno',aggiungiImpegno);
-
-//Delete impegno
-app.use('/api/v1/deleteImpegno',deleteImpegno);
+//Apis impegni animali
+app.use('/api/v1/impegniAnimali',impegniAnimali);
 
 //Get info alimentazione
 app.use('/api/v1/infoAlimentazione',infoAlimentazione);
-
-//Modifica impegno
-app.use('/api/v1/modificaImpegno',modificaImpegno);
 
 //Default 404 handler
 app.use((req, res) => {

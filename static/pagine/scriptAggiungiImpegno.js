@@ -8,7 +8,7 @@ function conferma(){
     let luogo = document.getElementById("luogo").value;
     let data = document.getElementById("data").value;
 
-    fetch('../api/v1/aggiungiImpegno', {
+    fetch('../api/v1/impegniAnimali/aggiungiImpegno', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify( { email: email, impegnoNew: impegno, animaleNew: animale, luogoNew: luogo, dataNew: data} ),
