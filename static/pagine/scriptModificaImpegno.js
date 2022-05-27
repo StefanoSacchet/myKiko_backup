@@ -3,8 +3,8 @@ function conferma(){
     let idImpegno = sessionStorage.getItem("idImpegno"); //Get impegno's id
     sessionStorage.removeItem("idImpegno");
 
-    console.log(email);
-    console.log(idImpegno);
+    //console.log(email);
+    //console.log(idImpegno);
 
     //Get values from the user's inputs
     let impegno = document.getElementById("impegno").value;
