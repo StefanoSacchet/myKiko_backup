@@ -13,6 +13,7 @@ const impegni = require('./impegni.js');
 const aggiungiImpegno = require('./aggiungiImpegno.js');
 const deleteImpegno = require('./deleteImpegno.js');
 const infoAlimentazione = require('./infoAlimentazione.js');
+const modificaImpegno = require('./modificaImpegno.js');
 
 //Configure Express.js parsing middleware
 app.use(express.json());
@@ -56,6 +57,9 @@ app.use('/api/v1/deleteImpegno',deleteImpegno);
 
 //Get info alimentazione
 app.use('/api/v1/infoAlimentazione',infoAlimentazione);
+
+//Modifica impegno
+app.use('/api/v1/modificaImpegno',modificaImpegno);
 
 //Default 404 handler
 app.use((req, res) => {

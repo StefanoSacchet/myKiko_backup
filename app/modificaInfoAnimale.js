@@ -1,3 +1,4 @@
+/* This is the code for the route that updates the animal's data. */
 const express = require('express');
 const router = express.Router();
 const User = require('./models/user');// get our mongoose model

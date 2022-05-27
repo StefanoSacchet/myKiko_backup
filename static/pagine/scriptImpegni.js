@@ -95,7 +95,9 @@ function eliminaImpegno(impegni, btnId){
 }
 
 function modificaImpegno(impegni, btnId){
-    //console.log(impegni[btnId]._id);
+    console.log(impegni[btnId]._id);
+    sessionStorage.setItem("idImpegno",impegni[btnId]._id);
+    document.location.href = 'modificaImpegno.html';
 }
 
 function aggiungiImpegno(){
