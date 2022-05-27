@@ -14,6 +14,7 @@ const aggiungiImpegno = require('./aggiungiImpegno.js');
 const deleteImpegno = require('./deleteImpegno.js');
 const infoAlimentazione = require('./infoAlimentazione.js');
 const modificaImpegno = require('./modificaImpegno.js');
+const deleteAnimale= require('./deleteAnimale.js');
 
 //Configure Express.js parsing middleware
 app.use(express.json());
@@ -60,6 +61,9 @@ app.use('/api/v1/infoAlimentazione',infoAlimentazione);
 
 //Modifica impegno
 app.use('/api/v1/modificaImpegno',modificaImpegno);
+
+//delete animale
+app.use('/api/v1/deleteAnimale',deleteAnimale);
 
 //Default 404 handler
 app.use((req, res) => {

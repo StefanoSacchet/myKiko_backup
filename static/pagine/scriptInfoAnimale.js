@@ -1,12 +1,21 @@
 let email = sessionStorage.getItem("email"); //Get user email
 
 let imgRazza;
+let id;
 
 //Enable and disable button
 let btnModificaInfoAnimale = document.getElementById("gestisciAnimale");
+let btnCancellaAnimale = document.getElementById("eliminaAnimale");
 let accordion = document.getElementById("btnAccordion");
 
+let btnConfermaDelete = document.getElementById("confermaDelete");
+let btnAnnullaDelete = document.getElementById("annullaDelete");
+
+btnAnnullaDelete.hidden = true;
+btnConfermaDelete.hidden = true;
+
 btnModificaInfoAnimale.disabled = true; //Disable button
+btnCancellaAnimale.disabled = true;
 accordion.disabled = true; //disable accordion
 
 //Get pet's info
@@ -27,7 +36,8 @@ function dropdownDinamic(data){
 
         dropdowndElement.onclick = () => {
             //console.log(animale);
-            writeInfo(animale);
+            id = animale._id;
+            writeInfo(animale); 
         };
 
         dropdowndElement.textContent = animale.nome;
@@ -40,6 +50,7 @@ function dropdownDinamic(data){
 function writeInfo(data){
 
     btnModificaInfoAnimale.disabled = false; //Enable button
+    btnCancellaAnimale.disabled = false;
     accordion.disabled = false; //Enable accordion
 
     //console.log(data._id);
@@ -91,6 +102,40 @@ function modificaInfoAnimale(){
 function aggiungiAnimale(){
     document.location.href = 'aggiungiAnimale.html'
 }
+
+function eliminaAnimale(){
+    //console.log("Elimina animale");
+    btnCancellaAnimale.disabled = true;
+    btnAnnullaDelete.hidden = false;
+    btnConfermaDelete.hidden = false;
+}
+
+function deleteAnimale(){
+
+    fetch('../api/v1/deleteAnimale', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify( { email: email, idAnimale: id} ),
+    })
+    .then((resp) => resp.json()) // Transform the data into json
+    .then(function(data){
+        
+        if(data.success){
+            window.location.reload();
+        }else{
+            document.getElementById("paraDanger").innerHTML = "Elimina animale fallito";
+        }
+    })
+    .catch( error => console.error(error) ); // If there is any error you will catch them here
+}
+
+function annulla(){
+    btnCancellaAnimale.disabled = false;
+    btnConfermaDelete.hidden = true;
+    btnAnnullaDelete.hidden = true;
+}
+
+
 
 //Go back to home screen
 function goBack(){
