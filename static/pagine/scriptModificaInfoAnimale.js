@@ -3,7 +3,7 @@ function conferma(){
     let idAnimale = sessionStorage.getItem("idAnimale"); //Get pet's id
     sessionStorage.removeItem("idAnimale");
 
-    console.log(idAnimale);
+    //console.log(idAnimale);
 
     //Get values from the user's inputs
     let nome = document.getElementById("nome").value;
@@ -14,7 +14,7 @@ function conferma(){
 
     document.getElementById("paraMessage").value = "";
 
-    fetch('/api/v1/modificaInfoAnimale', {
+    fetch('/api/v1/animali/modificaInfoAnimale', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify( { email: email, id: idAnimale, nomeNew: nome, razzaNew: razza, etaNew: eta, pesoNew: peso, codiceChipNew: codiceChip } ),

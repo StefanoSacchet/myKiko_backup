@@ -19,7 +19,7 @@ btnCancellaAnimale.disabled = true;
 accordion.disabled = true; //disable accordion
 
 //Get pet's info
-fetch('../api/v1/infoAnimale?email=' + email)
+fetch('../api/v1/animali/infoAnimale?email=' + email)
 .then((resp) => resp.json()) // Transform the data into json
 .then(function (data) {
     //console.log(data.animale);
@@ -57,7 +57,7 @@ function writeInfo(data){
     sessionStorage.setItem("idAnimale",data._id); //Save pet's id
 
     //Cerca info razza
-    fetch('../api/v1/infoRazza?razza=' + data.razza)
+    fetch('../api/v1/animali/infoRazza?razza=' + data.razza)
     .then((resp) => resp.json()) // Transform the data into json
     .then(function (dataRazza) {
 
@@ -112,7 +112,7 @@ function eliminaAnimale(){
 
 function deleteAnimale(){
 
-    fetch('../api/v1/deleteAnimale', {
+    fetch('../api/v1/animali/deleteAnimale', {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify( { email: email, idAnimale: id} ),

@@ -3,18 +3,15 @@ const app = express();
 
 const authentication = require('./authentication.js');
 const registration = require('./registration.js');
-const infoAnimale = require('./infoAnimale.js');
 const modificaCredenziali = require('./modificaCredenziali.js');
-const modificaInfoAnimale = require('./modificaInfoAnimale.js');
-const aggiungiAnimale = require('./aggiungiAnimale.js');
-const infoRazza = require('./infoRazza.js');
 const deleteAccount = require('./deleteAccount.js');
 const impegni = require('./impegni.js');
 const aggiungiImpegno = require('./aggiungiImpegno.js');
 const deleteImpegno = require('./deleteImpegno.js');
 const infoAlimentazione = require('./infoAlimentazione.js');
 const modificaImpegno = require('./modificaImpegno.js');
-const deleteAnimale= require('./deleteAnimale.js');
+
+const animali = require('./animali.js');
 
 //Configure Express.js parsing middleware
 app.use(express.json());
@@ -29,23 +26,14 @@ app.use('/api/v1/authentication', authentication);
 //Registration routing and middleware
 app.use('/api/v1/registration', registration);
 
-//Info pets
-app.use('/api/v1/infoAnimale',infoAnimale);
-
 //Change credentials
 app.use('/api/v1/modificaCredenziali',modificaCredenziali);
 
-//Change pet's info
-app.use('/api/v1/modificaInfoAnimale',modificaInfoAnimale);
-
-//Add pets
-app.use('/api/v1/aggiungiAnimale',aggiungiAnimale);
-
-//Get info razza
-app.use('/api/v1/infoRazza',infoRazza);
-
 //Delete account
 app.use('/api/v1/deleteAccount',deleteAccount);
+
+//api for animali
+app.use('/api/v1/animali',animali);
 
 //Get impegni
 app.use('/api/v1/impegni',impegni);
@@ -63,7 +51,7 @@ app.use('/api/v1/infoAlimentazione',infoAlimentazione);
 app.use('/api/v1/modificaImpegno',modificaImpegno);
 
 //delete animale
-app.use('/api/v1/deleteAnimale',deleteAnimale);
+//app.use('/api/v1/deleteAnimale',deleteAnimale);
 
 //Default 404 handler
 app.use((req, res) => {

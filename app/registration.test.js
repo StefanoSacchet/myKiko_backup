@@ -38,7 +38,7 @@ describe('POST /api/v1/registration', () => {
     /*test('POST /api/v1/registration with new user', () => { //Aggiunge al db user tmp
         return request(app)
           .post('/api/v1/registration')
-          .send({ email: 'tmp', password: 'tmp' }) // sends a JSON post body
+          .send({ email: 'tmp', password: '1' }) // sends a JSON post body
           .expect('Content-Type', /json/)
           .expect(201);
     });*/

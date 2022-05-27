@@ -9,7 +9,7 @@ function conferma(){
     let peso = document.getElementById("peso").value;
     let codiceChip = document.getElementById("codiceChip").value;
 
-    fetch('../api/v1/aggiungiAnimale', {
+    fetch('../api/v1/animali/aggiungiAnimale', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify( { email: email, nomeNew: nome, razzaNew: razza, etaNew: eta, pesoNew: peso, codiceChipNew: codiceChip } ),
