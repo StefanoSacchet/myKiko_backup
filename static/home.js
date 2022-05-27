@@ -63,5 +63,5 @@ function cibo(){
 }
 
 function smarThings(){
-    
+    document.location.href = '/pagine/smarThings.html';
 }
