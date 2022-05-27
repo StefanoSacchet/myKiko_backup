@@ -3,10 +3,10 @@ let email = sessionStorage.getItem("email"); //Get user email
 let imgRazza;
 
 //Enable and disable button
-let btnModificaInfoAnimale = document.getElementById("gestisciCibo");
+let btnGestisciCibbo = document.getElementById("gestisciCibo");
 let accordion = document.getElementById("btnAccordion");
 
-btnModificaInfoAnimale.disabled = true; //Disable button
+btnGestisciCibbo.disabled = true; //Disable button
 accordion.disabled = true; //disable accordion
 
 //Get pet's info
@@ -39,7 +39,7 @@ function dropdownDinamic(data){
 
 function writeInfo(data){
 
-    btnModificaInfoAnimale.disabled = false; //Enable button
+    btnGestisciCibbo.disabled = false; //Enable button
     accordion.disabled = false; //Enable accordion
 
     //Cerca info alimetari
