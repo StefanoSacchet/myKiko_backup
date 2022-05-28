@@ -2,7 +2,7 @@ const request = require('supertest');
 const app = require('./app');
 const mongoose = require('mongoose');
  
-describe('GET /api/v1/infoAlimentazione', () => {
+describe('/api/v1/cibo/infoAlimentazione', () => {
 
     let connection;
 
@@ -19,23 +19,23 @@ describe('GET /api/v1/infoAlimentazione', () => {
         console.log("Database connection closed");
     });
 
-    test('GET /api/v1/infoAlimentazione with no razza', () => {
+    test('GET /api/v1/cibo/infoAlimentazione with no razza', () => {
         return request(app)
-          .get('/api/v1/infoAlimentazione')
+          .get('/api/v1/cibo/infoAlimentazione')
           .expect('Content-Type', /json/)
           .expect( { success: false, message: 'Razza not found' } );
     });
 
-    test('GET /api/v1/infoAlimentazione with wrong razza', () => {
+    test('GET /api/v1/cibo/infoAlimentazione with wrong razza', () => {
         return request(app)
-          .get('/api/v1/infoAlimentazione?razza=' + 'wrong')
+          .get('/api/v1/cibo/infoAlimentazione?razza=' + 'wrong')
           .expect('Content-Type', /json/)
           .expect( { success: false, message: 'Razza not found' } );
     });
 
-    test('GET /api/v1/infoAlimentazione with existing razza', async () => {
+    test('GET /api/v1/cibo/infoAlimentazione with existing razza', async () => {
         expect.assertions(1);
-        const response = await request(app).get('/api/v1/infoAlimentazione?razza=' + 'maltese');
+        const response = await request(app).get('/api/v1/cibo/infoAlimentazione?razza=' + 'maltese');
         expect(response.statusCode).toBe(200);
     });
 });

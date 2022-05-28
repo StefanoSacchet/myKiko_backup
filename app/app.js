@@ -1,8 +1,6 @@
 const express = require('express');
 const app = express();
 
-const infoAlimentazione = require('./infoAlimentazione.js');
-
 const userAccount = require('./userAccount.js');
 const animali = require('./animali.js');
 const impegniAnimali = require('./impegniAnimali.js');
@@ -26,9 +24,6 @@ app.use('/api/v1/impegniAnimali',impegniAnimali);
 
 //Apis cibo
 app.use('/api/v1/cibo',cibo);
-
-//Get info alimentazione
-app.use('/api/v1/infoAlimentazione',infoAlimentazione);
 
 //Default 404 handler
 app.use((req, res) => {
