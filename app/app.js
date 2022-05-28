@@ -6,6 +6,7 @@ const infoAlimentazione = require('./infoAlimentazione.js');
 const userAccount = require('./userAccount.js');
 const animali = require('./animali.js');
 const impegniAnimali = require('./impegniAnimali.js');
+const cibo = require('./cibo.js');
 
 //Configure Express.js parsing middleware
 app.use(express.json());
@@ -22,6 +23,9 @@ app.use('/api/v1/animali',animali);
 
 //Apis impegni animali
 app.use('/api/v1/impegniAnimali',impegniAnimali);
+
+//Apis cibo
+app.use('/api/v1/cibo',cibo);
 
 //Get info alimentazione
 app.use('/api/v1/infoAlimentazione',infoAlimentazione);

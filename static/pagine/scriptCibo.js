@@ -10,7 +10,7 @@ btnGestisciCibbo.disabled = true; //Disable button
 accordion.disabled = true; //disable accordion
 
 //Get pet's info
-fetch('../api/v1/infoAnimale?email=' + email)
+fetch('../api/v1/animali/infoAnimale?email=' + email)
 .then((resp) => resp.json()) // Transform the data into json
 .then(function (data) {
     //console.log(data.animale);
@@ -42,8 +42,8 @@ function writeInfo(data){
     btnGestisciCibbo.disabled = false; //Enable button
     accordion.disabled = false; //Enable accordion
 
-    //Cerca info alimetari
-    fetch('../api/v1/infoAlimentazione?razza=' + data.razza)
+    //Cerca info alimentari
+    fetch('../api/v1/cibo/infoAlimentazione?razza=' + data.razza)
     .then((resp) => resp.json()) // Transform the data into json
     .then(function (dataCibo) {
 
@@ -54,7 +54,7 @@ function writeInfo(data){
             document.getElementById("datiCibo").innerHTML = "informazioni non trovate";
         }
 
-        /*Add card*/
+        //Add card
         initCard(data);
 
     })
