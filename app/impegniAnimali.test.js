@@ -43,17 +43,55 @@ describe('/api/v1/impegniAnimali/', () => {
           .expect( { success: false, message: 'Empty inputs' } );
     });
 
-    test('POST /api/v1/impegniAnimali/aggiungiImpegno with right input', () => {
+    /*test('POST /api/v1/impegniAnimali/aggiungiImpegno with right input', () => {
         return request(app)
           .post('/api/v1/impegniAnimali/aggiungiImpegno')
           .send( {  email: 'testing', impegnoNew: 'test', animaleNew: 'test', luogoNew: 'test', dataNew: '1' } )
           .expect('Content-Type', /json/)
           .expect(201, { success: true, message: 'Data inserted' } );
-    });
+    });*/
 
 
     /*MODIFICA IMPEGNO*/
+    test('PUT /api/v1/impegniAnimali/modificaImpegno with empty input', () => {
+        return request(app)
+          .put('/api/v1/impegniAnimali/modificaImpegno')
+          .send( {  email: 'testing', id: '', impegnoNew: '', animaleNew: '', luogoNew: '', dataNew: '' } )
+          .expect('Content-Type', /json/)
+          .expect( { success: false, message: 'Empty inputs' } );
+    });
+
+    test('PUT /api/v1/impegniAnimali/modificaImpegno with wrong input', () => {
+        return request(app)
+          .put('/api/v1/impegniAnimali/modificaImpegno')
+          .send( {  email: 'wrong', id: '629147de49f79b7228392781', impegnoNew: 'tmp', animaleNew: 'tmp', luogoNew: 'tmp', dataNew: '2' } )
+          .expect('Content-Type', /json/)
+          .expect( { success: false, message: 'User not found' } );
+    });
+
+    test('PUT /api/v1/impegniAnimali/modificaImpegno with correct input', () => {
+        return request(app)
+          .put('/api/v1/impegniAnimali/modificaImpegno')
+          .send( {  email: 'testing', id: '629147de49f79b7228392781', impegnoNew: 'tmp', animaleNew: 'tmp', luogoNew: 'tmp', dataNew: '2' } )
+          .expect('Content-Type', /json/)
+          .expect(200, { success: true, message: 'Changes applyed' } );
+    });
 
 
     /*DELETE IMPEGNO*/
+    test('DELETE /api/v1/impegniAnimali/deleteImpengo with wrong input', () => {
+        return request(app)
+          .delete('/api/v1/impegniAnimali/deleteImpegno')
+          .send( {  email: 'wrong', id: '628fe8cb6e88a8ccf67b0388' } )
+          .expect('Content-Type', /json/)
+          .expect( { success: false, message: 'Delete failed. User not found.' } );
+    });
+
+    test('DELETE /api/v1/impegniAnimali/deleteImpengo with correct input', () => {
+        return request(app)
+          .delete('/api/v1/impegniAnimali/deleteImpegno')
+          .send( {  email: 'testing', id: '628fe8cb6e88a8ccf67b0388' } )
+          .expect('Content-Type', /json/)
+          .expect(200, { success: true, message: 'Impegno deleted' } );
+    });
 })
