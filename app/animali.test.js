@@ -114,4 +114,19 @@ describe('/api/v1/animali/', () => {
 
 
     /*DELTE ANIMALE*/
+    test('DELETE /api/v1/animali/deleteAnimale with wrong email', () => {
+        return request(app)
+          .delete('/api/v1/animali/deleteAnimale')
+          .send( { email: 'wrong', idAnimale: '628f276ddc5e7e5d18554121' } )
+          .expect('Content-Type', /json/)
+          .expect(200, { success: false, message: 'Delete failed. User not found.' } );
+    });
+
+    test('DELETE /api/v1/animali/deleteAnimale with correct input', () => {
+        return request(app)
+          .delete('/api/v1/animali/deleteAnimale')
+          .send( { email: 'testing', idAnimale: '6291ee7f9f4ddce4d0bca11b' } )
+          .expect('Content-Type', /json/)
+          .expect(200, { success: true, message: 'Animale deleted' } );
+    });
 })

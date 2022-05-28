@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">73.68% </span>
+                <span class="strong">86.18% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>112/152</span>
+                <span class='fraction'>131/152</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">90.47% </span>
+                <span class="strong">87.5% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>19/21</span>
+                <span class='fraction'>21/24</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">73.68% </span>
+                <span class="strong">86.18% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>112/152</span>
+                <span class='fraction'>131/152</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -341,29 +341,29 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">const express = require('express');
 const router = express.Router();
@@ -492,29 +492,29 @@ router.put('/modificaInfoAnimale', async function(req,res){
 &nbsp;
 /*DELETE ANIMALE*/
 router.delete('/deleteAnimale', async function(req,res){
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    //console.log(req.body.idImpegno);</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    // find the user</span>
-<span class="cstat-no" title="statement not covered" >	let user = await User.findOne({</span>
-<span class="cstat-no" title="statement not covered" >		email: req.body.email</span>
-<span class="cstat-no" title="statement not covered" >	}).exec();</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    if(!user){</span>
-<span class="cstat-no" title="statement not covered" >        res.json({ success: false, message: 'Delete failed. User not found.' });</span>
-<span class="cstat-no" title="statement not covered" >    }else{</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >        user = await User.updateOne( { email: req.body.email }, { $pull: { "animale": {_id: req.body.idAnimale} } });</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >        //console.log(user);</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >        if(user.acknowledged == true){</span>
+&nbsp;
+    //console.log(req.body.idImpegno);
+&nbsp;
+    // find the user
+	let user = await User.findOne({
+		email: req.body.email
+	}).exec();
+&nbsp;
+    if(!user){
+        res.json({ success: false, message: 'Delete failed. User not found.' });
+    }else{
+&nbsp;
+        user = await User.updateOne( { email: req.body.email }, { $pull: { "animale": {_id: req.body.idAnimale} } });
+&nbsp;
+        //console.log(user);
+&nbsp;
+<span class="branch-0 cbranch-no" title="branch not covered" >        if(user.acknowledged == true){</span>
 <span class="cstat-no" title="statement not covered" >            res.status(200).json({ success: true, message: 'Animale deleted' })</span>
 <span class="cstat-no" title="statement not covered" >        }else{</span>
 <span class="cstat-no" title="statement not covered" >            res.json({ success: false, message: 'Delete failed' })</span>
 <span class="cstat-no" title="statement not covered" >        }</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" >});</span>
+    }
+});
 &nbsp;
 module.exports = router;</pre></td></tr></table></pre>
 
@@ -523,7 +523,7 @@ module.exports = router;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Fri May 27 2022 23:51:27 GMT+0200 (Ora legale dell’Europa centrale)
+                at Sat May 28 2022 11:45:28 GMT+0200 (Ora legale dell’Europa centrale)
             </div>
         <script src="../prettify.js"></script>
         <script>
