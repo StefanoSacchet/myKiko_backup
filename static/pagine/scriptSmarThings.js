@@ -1,12 +1,6 @@
 var email = sessionStorage.getItem("email");
 
 
-
-
-
-
-
-
 function aggiungiDispositivo(){
     console.log("Ciao Ste");
 }
