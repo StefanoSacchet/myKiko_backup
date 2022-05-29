@@ -1,12 +1,12 @@
 let email = sessionStorage.getItem("email"); //Get user email
 
-//let imgRazza;
+let count = 0;
 
 //Enable and disable button
-let btnGestisciCibbo = document.getElementById("gestisciCibo");
+//let btnGestisciCibbo = document.getElementById("gestisciCibo");
 let accordion = document.getElementById("btnAccordion");
 
-btnGestisciCibbo.disabled = true; //Disable button
+//btnGestisciCibbo.disabled = true; //Disable button
 accordion.disabled = true; //disable accordion
 
 //Get pet's info
@@ -15,6 +15,15 @@ fetch('../api/v1/animali/infoAnimale?email=' + email)
 .then(function (data) {
     //console.log(data.animale);
     dropdownDinamic(data.animale);
+})
+.catch(error => console.error(error)); // If there is any error you will catch them here
+
+//Get types of cibo
+fetch('../api/v1/cibo/tipiCibo?email=' + email)
+.then((resp) => resp.json()) // Transform the data into json
+.then(function (data) {
+    //console.log(data.animale);
+    initSliders(data.cibo);
 })
 .catch(error => console.error(error)); // If there is any error you will catch them here
 
@@ -37,9 +46,52 @@ function dropdownDinamic(data){
     });
 }
 
+function initSliders(data){
+
+    //console.log(data);
+
+    data.forEach(cibo => {
+        let label = document.createElement("label");
+        label.setAttribute("for","customRange3");
+        label.setAttribute("class","form-label");
+        label.innerHTML = cibo.nomeProdotto;
+
+        let input = document.createElement("input");
+        input.setAttribute("type","range");
+        input.setAttribute("class","form-range");
+        input.setAttribute("min","0");
+        input.setAttribute("max","100");
+        input.setAttribute("step","5");
+        input.setAttribute("id","livelloCibo" + count);
+        input.value = cibo.quantita;
+
+        let button = document.createElement("button");
+        button.setAttribute("type","button");
+        button.setAttribute("class","btn btn-primary");
+        button.setAttribute("id",count);
+        button.innerHTML = "Applica modifiche";
+        button.onclick = () => {
+            appllicaModifiche(cibo.nomeProdotto, button.id); 
+        };
+
+        let br = document.createElement("br");
+        let br1 = document.createElement("br");
+        
+        let div = document.getElementById("divSlider");
+        div.setAttribute("class","col-sm-5");
+        div.appendChild(label);
+        div.appendChild(input);
+        div.append(button);
+        div.appendChild(br);
+        div.appendChild(br1);
+
+        count++;
+    });
+}
+
 function writeInfo(data){
 
-    btnGestisciCibbo.disabled = false; //Enable button
+    //btnGestisciCibbo.disabled = false; //Enable button
     accordion.disabled = false; //Enable accordion
 
     let imgRazza;
@@ -83,6 +135,30 @@ function initCard(data, imgRazza){
 
     document.getElementById("pCard").innerHTML = "Razza: " + data.razza;
 }
+
+function appllicaModifiche(nomeProdotto, count){
+    //let tmp = document.getElementById("livelloCibo" + idBottone).value;
+    //console.log(nomeProdotto);
+    console.log(count);
+
+    fetch('/api/v1/cibo/modificaValoreCibo', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify( { email: email, nomeProdotto: nomeProdotto, valoreNew: document.getElementById("livelloCibo" + count).value} ),
+    })
+    .then((resp) => resp.json()) // Transform the data into json
+    .then(function(data){
+        
+        if(data.success){
+            console.log("dc");
+        }
+    })
+    .catch(error => console.error(error)); // If there is any error you will catch them here
+
+}
+
+
+
 
 //Go back to home screen
 function goBack(){

@@ -43,6 +43,13 @@ app.locals.db = mongoose.connect(process.env.DB_URL)
         animale: 'Bobo',
         luogo: 'Parco melta',
         data: new Date("2024-02-01T23:11:59Z")
+    }],
+    cibo: [{
+        nomeProdotto: 'monge',
+        quantita: 50
+    },{
+        nomeProdotto: 'royal canin',
+        quantita: 20
     }]
 }).save();*/
 
