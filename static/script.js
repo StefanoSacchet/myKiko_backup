@@ -38,6 +38,10 @@ function login() {
             document.location.href='home.html';
         }else if(data.message == "Authentication failed. User not found."){
             document.getElementById("paraDanger").innerHTML = "Username o password sbagliati";
+            //console.log(data.message);
+        }else if (data.message == "Authentication failed. Wrong password."){
+            //console.log(data.message);
+            document.getElementById("paraDanger").innerHTML = "Password errata";
         }else{
             document.getElementById("paraDanger").innerHTML = "Compilare tutti i campi";
         }
