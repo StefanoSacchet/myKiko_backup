@@ -1,6 +1,6 @@
 let email = sessionStorage.getItem("email"); //Get user email
 
-let imgRazza;
+//let imgRazza;
 
 //Enable and disable button
 let btnGestisciCibbo = document.getElementById("gestisciCibo");
@@ -42,6 +42,8 @@ function writeInfo(data){
     btnGestisciCibbo.disabled = false; //Enable button
     accordion.disabled = false; //Enable accordion
 
+    let imgRazza;
+
     //Cerca info alimentari
     fetch('../api/v1/cibo/infoAlimentazione?razza=' + data.razza)
     .then((resp) => resp.json()) // Transform the data into json
@@ -55,13 +57,13 @@ function writeInfo(data){
         }
 
         //Add card
-        initCard(data);
+        initCard(data, imgRazza);
 
     })
     .catch(error => console.error(error)); // If there is any error you will catch them here
 }
 
-function initCard(data){
+function initCard(data, imgRazza){
 
     let divCard = document.getElementById("card");
     divCard.setAttribute("class","card");
@@ -70,8 +72,10 @@ function initCard(data){
     let img = document.getElementById("imgCard");
     if(data.immagine){ //if user has img
         img.setAttribute("src",data.immagine);
-    }else{ //If user hasn't img use default
+    }else if(imgRazza != undefined){ //If user hasn't img use razza img
         img.setAttribute("src",imgRazza);
+    }else{
+        img.setAttribute("src","/images/info.png"); //If razza not exists use default
     }
     
     let h5 = document.getElementById("h5Card");    
@@ -79,7 +83,6 @@ function initCard(data){
 
     document.getElementById("pCard").innerHTML = "Razza: " + data.razza;
 }
-
 
 //Go back to home screen
 function goBack(){

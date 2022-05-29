@@ -1,6 +1,6 @@
 let email = sessionStorage.getItem("email"); //Get user email
 
-let imgRazza;
+//let imgRazza;
 let id;
 
 //Enable and disable button
@@ -56,6 +56,8 @@ function writeInfo(data){
     //console.log(data._id);
     sessionStorage.setItem("idAnimale",data._id); //Save pet's id
 
+    let imgRazza;
+
     //Cerca info razza
     fetch('../api/v1/animali/infoRazza?razza=' + data.razza)
     .then((resp) => resp.json()) // Transform the data into json
@@ -69,13 +71,13 @@ function writeInfo(data){
         }
 
         /*Add card*/
-        initCard(data);
+        initCard(data, imgRazza);
 
     })
     .catch(error => console.error(error)); // If there is any error you will catch them here
 }
 
-function initCard(data){
+function initCard(data, imgRazza){
 
     let divCard = document.getElementById("card");
     divCard.setAttribute("class","card");
