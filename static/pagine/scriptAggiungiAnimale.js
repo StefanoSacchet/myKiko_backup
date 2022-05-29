@@ -12,7 +12,7 @@ function conferma(){
     fetch('../api/v1/animali/aggiungiAnimale', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify( { email: email, nomeNew: nome, razzaNew: razza, etaNew: eta, pesoNew: peso, codiceChipNew: codiceChip } ),
+        body: JSON.stringify( { email: email, nomeNew: nome, razzaNew: razza.toLowerCase(), etaNew: eta, pesoNew: peso, codiceChipNew: codiceChip } ),
     })
     .then((resp) => resp.json()) // Transform the data into json
     .then(function(data){
