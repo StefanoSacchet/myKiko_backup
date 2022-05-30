@@ -64,6 +64,13 @@ function initSliders(data){
         input.setAttribute("step","5");
         input.setAttribute("id","livelloCibo" + count);
         input.value = cibo.quantita;
+        input.onclick = () => {
+            link.innerHTML = input.value + "%";
+        }
+
+        let link = document.createElement("p");
+        link.setAttribute("id","link" + count);
+        link.innerHTML = cibo.quantita + "% <br>";
 
         let button = document.createElement("button");
         button.setAttribute("type","button");
@@ -77,11 +84,10 @@ function initSliders(data){
         var btnElimina = document.createElement("button");
         btnElimina.setAttribute("class","btn btn-danger");
         btnElimina.setAttribute("id",count);
+        btnElimina.innerHTML = "Elimina cibo";
         btnElimina.onclick = () => {
         eliminaCibo(cibo, btnElimina.id);
-    };
-    btnElimina.innerHTML = "Elimina cibo";
-
+        };
 
         let br = document.createElement("br");
         let br1 = document.createElement("br");
@@ -90,6 +96,7 @@ function initSliders(data){
         div.setAttribute("class","col-sm-5");
         div.appendChild(label);
         div.appendChild(input);
+        div.appendChild(link);
         div.append(button);
         div.appendChild(btnElimina);
         div.appendChild(br1);
