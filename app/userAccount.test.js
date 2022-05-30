@@ -9,7 +9,7 @@ describe('/api/v1/userAccount/', () => {
     beforeAll( async () => {
         jest.setTimeout(10000); //Da cambiare in 8000
         jest.unmock('mongoose');
-        connection = await  mongoose.connect(process.env.DB_URL);
+        connection = await  mongoose.connect(process.env.DB_URL_TESTING);
         console.log('Database connected!');
         //return connection; // Need to return the Promise db connection?
     });
