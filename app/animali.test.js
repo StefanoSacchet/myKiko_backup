@@ -107,7 +107,7 @@ describe('/api/v1/animali/', () => {
     test('PUT /api/v1/animali/modificaInfoAnimale with correct input', () => {
         return request(app)
           .put('/api/v1/animali/modificaInfoAnimale')
-          .send( { email: 'testing', id: '628f276ddc5e7e5d18554121', nomeNew: 'prova', razzaNew: 'bulldog', etaNew: '1', pesoNew: '2.1', codiceChipNew: 'abc' } )
+          .send( { email: 'testing', id: '6294fae39b5454b0ea0024c3', nomeNew: 'prova', razzaNew: 'bulldog', etaNew: '1', pesoNew: '2.1', codiceChipNew: 'abc' } )
           .expect('Content-Type', /json/)
           .expect(200, { success: true, message: 'Changes applyed' } );
     });
@@ -125,7 +125,7 @@ describe('/api/v1/animali/', () => {
     /*test('DELETE /api/v1/animali/deleteAnimale with correct input', () => {
         return request(app)
           .delete('/api/v1/animali/deleteAnimale')
-          .send( { email: 'testing', idAnimale: '6291ee7f9f4ddce4d0bca11b' } )
+          .send( { email: 'testing', idAnimale: '6294fae39b5454b0ea0024c3' } )
           .expect('Content-Type', /json/)
           .expect(200, { success: true, message: 'Animale deleted' } );
     });*/

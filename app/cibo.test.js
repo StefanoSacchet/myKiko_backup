@@ -19,6 +19,7 @@ describe('/api/v1/cibo/infoAlimentazione', () => {
         console.log("Database connection closed");
     });
 
+    /*INFO ALIMENTAZIONE RAZZA*/
     test('GET /api/v1/cibo/infoAlimentazione with no razza', () => {
         return request(app)
           .get('/api/v1/cibo/infoAlimentazione')
@@ -38,4 +39,10 @@ describe('/api/v1/cibo/infoAlimentazione', () => {
         const response = await request(app).get('/api/v1/cibo/infoAlimentazione?razza=' + 'maltese');
         expect(response.statusCode).toBe(200);
     });
+
+
+    /*TIPOLOGIE DI CIBO*/
+    /*AGGIUNGI CIBO*/
+    /*MODIFICA VALORE CIBO*/
+    /*DELETE CIBO*/
 });
