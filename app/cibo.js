@@ -96,28 +96,26 @@ router.put('/modificaValoreCibo', async function(req,res){
     let nomeProdotto = req.body.nomeProdotto;
     let valoreNew = req.body.valoreNew;
 
-    console.log("pd");
-
     // find the user
 	let user = await User.findOne({
         email: userEmail
-	    }).exec();
+	}).exec();
 
-        if(!user){
-            res.json({ success: false, message: 'User not found' })
-        }else{
+    if(!user){
+        res.json({ success: false, message: 'User not found' })
+    }else{
 
-            user = await User.updateOne( { email: userEmail, "cibo.nomeProdotto": nomeProdotto }, { $set: { "cibo.$.quantita": valoreNew} } );
+        user = await User.updateOne( { email: userEmail, "cibo.nomeProdotto": nomeProdotto }, { $set: { "cibo.$.quantita": valoreNew} } );
             
-            console.log(user);
+        //console.log(user);
     
-            if(user.acknowledged == true){
-                res.status(200).json({ success: true, message: 'Changes applyed' })
-            }else{
-                res.json({ success: false, message: 'Error. Changes not applayed' })
-            }
+        if(user.acknowledged == true){
+            res.status(200).json({ success: true, message: 'Changes applyed' })
+        }else{
+            res.json({ success: false, message: 'Error. Changes not applayed' })
         }
-    });
+    }
+});
 
 
 /*DELETE CIBO*/
