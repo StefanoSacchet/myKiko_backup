@@ -73,10 +73,6 @@ router.put('/modificaValoreCibo', async function(req,res){
     });
 
 
-
-
-
-
 /*AGGIUNGI CIBO*/
 router.post('/aggiungiCibo', async function(req,res){
 
@@ -107,6 +103,32 @@ router.post('/aggiungiCibo', async function(req,res){
             }else{
                 res.json({ success: false, message: 'Error. add failed' })
             }
+        }
+    }
+});
+
+/*DELETE CIBO*/
+router.delete('/deleteCibo', async function(req,res){
+
+    //console.log(req.body.idImpegno);
+
+    // find the user
+	let user = await User.findOne({
+		email: req.body.email
+	}).exec();
+
+    if(!user){
+        res.json({ success: false, message: 'Delete failed. User not found.' });
+    }else{
+
+        user = await User.updateOne( { email: req.body.email }, { $pull: { "cibo": {_id: req.body.idCibo} } });
+
+        //console.log(user);
+
+        if(user.acknowledged == true){
+            res.status(200).json({ success: true, message: 'Cibo deleted' })
+        }else{
+            res.json({ success: false, message: 'Delete failed' })
         }
     }
 });

@@ -74,6 +74,14 @@ function initSliders(data){
             appllicaModifiche(cibo.nomeProdotto, button.id); 
         };
 
+        var btnElimina = document.createElement("button");
+        btnElimina.setAttribute("class","btn btn-danger");
+        btnElimina.setAttribute("id",count);
+        btnElimina.onclick = () => {
+        eliminaCibo(cibo, btnElimina.id);
+    };
+    btnElimina.innerHTML = "Elimina cibo";
+
         let br = document.createElement("br");
         let br1 = document.createElement("br");
         
@@ -82,8 +90,9 @@ function initSliders(data){
         div.appendChild(label);
         div.appendChild(input);
         div.append(button);
-        div.appendChild(br);
+        div.appendChild(btnElimina);
         div.appendChild(br1);
+        div.appendChild(br);
 
         count++;
     });
@@ -149,11 +158,33 @@ function appllicaModifiche(nomeProdotto, count){
     .then((resp) => resp.json()) // Transform the data into json
     .then(function(data){
         
-        if(data.success){
-            console.log("dc");
-        }
+    
     })
     .catch(error => console.error(error)); // If there is any error you will catch them here
+
+}
+
+
+function eliminaCibo(cibo, btnEliminaId){
+    //console.log(cibo[btnEliminaId]._id);
+    console.log(cibo._id);
+
+
+    fetch('../api/v1/cibo/deleteCibo', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify( { email: email, idCibo: cibo._id } ),
+    })
+    .then((resp) => resp.json()) // Transform the data into json
+    .then(function(data){
+        
+        if(data.success){
+            window.location.reload();
+        }else{
+            document.getElementById("paraDanger").innerHTML = "Elimina cibo fallito";
+        }
+    })
+    .catch( error => console.error(error) ); // If there is any error you will catch them here
 
 }
 
