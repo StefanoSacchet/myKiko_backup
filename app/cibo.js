@@ -77,4 +77,43 @@ router.put('/modificaValoreCibo', async function(req,res){
 
 
 
+/*AGGIUNGI CIBO*/
+router.post('/aggiungiCibo', async function(req,res){
+
+    let userEmail = req.body.email;
+    let prodottoNew = req.body.prodottoNew;
+    let quantitaNew = req.body.quantitaNew;
+   
+
+    if(prodottoNew == "" || quantitaNew == ""){
+        res.status(400).json({ success: false, message: 'Empty inputs' })
+    }else{
+
+        //Find the user
+	    let user = await User.findOne({
+		    email: userEmail
+	    }).exec();
+
+        if(!user){
+            res.json( { success: false, message: 'User not found' } )
+        }else{
+
+            user = await User.updateOne( { email: userEmail }, { $push: { "cibo": {nomeProdotto: prodottoNew, quantita: quantitaNew} } });
+
+            //console.log(user);
+    
+            if(user.acknowledged == true){
+                res.status(201).json({ success: true, message: 'Data inserted' })
+            }else{
+                res.json({ success: false, message: 'Error. add failed' })
+            }
+        }
+    }
+});
+
+
+
+
+
+
 module.exports = router;

@@ -159,6 +159,13 @@ function appllicaModifiche(nomeProdotto, count){
 
 
 
+function aggiungiProdotto(){
+    sessionStorage.setItem("email", email);
+    document.location.href = 'aggiungiCibo.html';
+}
+
+
+
 
 //Go back to home screen
 function goBack(){
