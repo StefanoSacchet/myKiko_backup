@@ -158,7 +158,7 @@ function initCard(data, imgRazza){
 function appllicaModifiche(nomeProdotto, count){
     //let tmp = document.getElementById("livelloCibo" + idBottone).value;
     //console.log(nomeProdotto);
-    console.log(count);
+    //console.log(count);
 
     fetch('/api/v1/cibo/modificaValoreCibo', {
         method: 'PUT',
