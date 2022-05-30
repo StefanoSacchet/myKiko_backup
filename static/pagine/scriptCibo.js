@@ -51,9 +51,11 @@ function initSliders(data){
     //console.log(data);
 
     data.forEach(cibo => {
-        let label = document.createElement("label");
+        
+        let label = document.createElement("h5");
         label.setAttribute("for","customRange3");
         label.setAttribute("class","form-label");
+        label.setAttribute("style","color: #644847;");
         label.innerHTML = cibo.nomeProdotto;
 
         let input = document.createElement("input");
@@ -65,12 +67,12 @@ function initSliders(data){
         input.setAttribute("id","livelloCibo" + count);
         input.value = cibo.quantita;
         input.onclick = () => {
-            link.innerHTML = input.value + "%";
+            p.innerHTML = input.value + "%";
         }
 
-        let link = document.createElement("p");
-        link.setAttribute("id","link" + count);
-        link.innerHTML = cibo.quantita + "% <br>";
+        let p = document.createElement("p");
+        p.setAttribute("id","p" + count);
+        p.innerHTML = cibo.quantita + "% <br>";
 
         let button = document.createElement("button");
         button.setAttribute("type","button");
@@ -96,7 +98,7 @@ function initSliders(data){
         div.setAttribute("class","col-sm-5");
         div.appendChild(label);
         div.appendChild(input);
-        div.appendChild(link);
+        div.appendChild(p);
         div.append(button);
         div.appendChild(btnElimina);
         div.appendChild(br1);
