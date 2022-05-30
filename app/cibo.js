@@ -55,7 +55,7 @@ router.post('/aggiungiCibo', async function(req,res){
         res.status(400).json({ success: false, message: 'Empty inputs' })
     }else{
 
-        //Find the user
+        //Find the food's name
 	    let user = await User.findOne({
 		    email: userEmail
 	    }).exec();
@@ -64,14 +64,25 @@ router.post('/aggiungiCibo', async function(req,res){
             res.json( { success: false, message: 'User not found' } )
         }else{
 
-            user = await User.updateOne( { email: userEmail }, { $push: { "cibo": {nomeProdotto: prodottoNew, quantita: quantitaNew} } });
+            user = await User.findOne({
+                email: userEmail, "cibo.nomeProdotto": prodottoNew
+            }).exec();
 
             //console.log(user);
-    
-            if(user.acknowledged == true){
-                res.status(201).json({ success: true, message: 'Data inserted' })
+
+            if(user){
+                res.json( { success: false, message: 'Food already exists' } )
             }else{
-                res.json({ success: false, message: 'Error. add failed' })
+
+                user = await User.updateOne( { email: userEmail }, { $push: { "cibo": {nomeProdotto: prodottoNew, quantita: quantitaNew} } });
+
+                //console.log(user);
+    
+                if(user.acknowledged == true){
+                    res.status(201).json({ success: true, message: 'Data inserted' })
+                }else{
+                    res.json({ success: false, message: 'Error. add failed' })
+                }
             }
         }
     }
