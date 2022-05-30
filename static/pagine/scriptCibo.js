@@ -82,6 +82,7 @@ function initSliders(data){
     };
     btnElimina.innerHTML = "Elimina cibo";
 
+
         let br = document.createElement("br");
         let br1 = document.createElement("br");
         
