@@ -188,6 +188,8 @@ paths:
           description: 'account deleted'
         500:
           description: 'Delete failed. User not found.'
+        417:
+          description: 'Eliminazione fallita (controllo svolto senza successo),'
           
    /inforazza:
     x-summary: Informazioni razza
