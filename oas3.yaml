@@ -206,6 +206,22 @@ paths:
               immagine: /images/esempioaniamle.jpeg
          500:
           description: 'Delete failed. Razza not found.'  
+        
+    /impegni:
+     x-summary: Vede tutte le info
+     get:
+      summary: Visualizza gli impegni dell'utente
+      responses:
+        200:
+          description: 'Collections of task'
+          schema:
+                type: array
+                items:
+                  $ref: '#/definitions/schemas'
+        500:
+          description: 'User not found'
+          schema:
+                type: string    
   
 components:
   schemas:
