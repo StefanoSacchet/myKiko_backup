@@ -20,7 +20,7 @@ function login() {
     //document.location.href='/pagine/home.html';
     //document.getElementById("sottoTitolo").innerHTML = "ciao"; //"email: " + email + " , password: " + password;
     
-    fetch('../api/v1/authentications', {
+    fetch('../api/v1/userAccount/authentication', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify( { email: email, password: password } ),
@@ -33,11 +33,17 @@ function login() {
         loggedUser.id = data.id;
         loggedUser.self = data.self;
 
-        if(!data.success){
-            document.getElementById("paraDanger").innerHTML = "Username o password sbagliati";
-        }else{
+        if(data.success){
             sessionStorage.setItem("email",email);
             document.location.href='home.html';
+        }else if(data.message == "Authentication failed. User not found."){
+            document.getElementById("paraDanger").innerHTML = "Username o password sbagliati";
+            //console.log(data.message);
+        }else if (data.message == "Authentication failed. Wrong password."){
+            //console.log(data.message);
+            document.getElementById("paraDanger").innerHTML = "Password errata";
+        }else{
+            document.getElementById("paraDanger").innerHTML = "Compilare tutti i campi";
         }
 
         // loggedUser.id = loggedUser.self.substring(loggedUser.self.lastIndexOf('/') + 1);
@@ -62,7 +68,7 @@ function signUp(){
 
     //console.log(email + " " + password);
 
-    fetch('../api/v1/registration', {
+    fetch('../api/v1/userAccount/registration', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify( { email: email, password: password } ),
@@ -73,8 +79,12 @@ function signUp(){
 
         if(data.success){
             document.getElementById("paraInfo").innerHTML = "Credenziali registrate, effetuare il login";
-        }else{
+        }else if(data.message == "Registration failed. User already subscribed."){
             document.getElementById("paraDanger").innerHTML = "Utente già iscritto";
+        }else if(data.message == "Registration failed. input empty"){
+            document.getElementById("paraDanger").innerHTML = "Compilare tutti i campi";
+        }else{
+            document.getElementById("paraDanger").innerHTML = "Errore, ricaricare la pagina";
         }
 
         return;

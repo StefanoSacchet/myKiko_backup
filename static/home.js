@@ -18,8 +18,8 @@ function modificaCredenziali(){
 }
 
 function logout(){
-    sessionStorage.clear();//Clear user data
-    document.location.href = 'index.html';//Go back to login
+    sessionStorage.clear(); //Clear user data
+    document.location.href = 'index.html'; //Go back to login
 }
 
 function deleteAccount(){ 
@@ -30,7 +30,7 @@ function deleteAccount(){
 
 function confermaDelete(){
 
-    fetch('../api/v1/deleteAccount', {
+    fetch('../api/v1/userAccount/deleteAccount', {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify( { email: email } ),
@@ -55,13 +55,13 @@ function annullaDelete(){
 }
 
 function impegni(){
-    
+    document.location.href = '/pagine/impegni.html';
 }
 
 function cibo(){
-    
+    document.location.href = '/pagine/cibo.html';
 }
 
 function smarThings(){
-    
+    document.location.href = '/pagine/smarThings.html';
 }

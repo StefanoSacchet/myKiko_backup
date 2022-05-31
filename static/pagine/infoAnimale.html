@@ -14,7 +14,7 @@
     <link rel="icon" href="/images/favicon.ico"/>
   </head>
 
-  <body style="background-color: lightblue;">
+  <body style="background-color: #2FDBBC">
 
     <h1  style="color: #644847;">Informazioni animale</h1>
 
@@ -31,7 +31,6 @@
     </div>
 
     <br><br>
-    <p id="infoAnimale"></p>
 
     <!-- Card -->
     <div id="card">
@@ -62,8 +61,14 @@
 
     <!-- Modifica informazioni animale -->
     <div>
-      <button type="button" class="btn btn-primary" id="gestisciAnimale" onclick="modificaInfoAnimale()">Modifica info animale</button>
-      <button type="button" class="btn btn-primary" id="aggiungiAnimale" onclick="aggiungiAnimale()">Aggiungi animale</button>
+      <button type="button" class="btn btn-danger" style="width:200px" id="eliminaAnimale" onclick="eliminaAnimale()">Elimina animale  </button>
+      <button type="button" class="btn btn-primary" style="width:200px" id="gestisciAnimale" onclick="modificaInfoAnimale()">Modifica info animale</button>
+      <br><br>
+      <button type="button" class="btn btn-danger" style="width:200px" id="confermaDelete" onclick="deleteAnimale()">Conferma  </button>
+      <button type="button" class="btn btn-primary" style="width:200px" id="annullaDelete" onclick="annulla()">annulla  </button>
+      <br><br>
+      <button type="button" class="btn btn-primary" style="width:200px" id="aggiungiAnimale" onclick="aggiungiAnimale()">Aggiungi animale</button>
+      <br>
     </div>
         
     <br><br>

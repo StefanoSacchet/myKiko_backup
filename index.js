@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const User = require('./app/models/user');
 const Razza = require('./app/models/razza');
 
-const port = process.env.port || 8080;
+const port = process.env.PORT || 8080;
 
 app.locals.db = mongoose.connect(process.env.DB_URL)
     .then(() => {
@@ -38,6 +38,18 @@ app.locals.db = mongoose.connect(process.env.DB_URL)
         animale: 'Packy',
         luogo: 'Clinica Maske',
         data: new Date("2022-11-13T11:22:33Z")
+    }, {
+        impegno: 'Passeggiata',
+        animale: 'Bobo',
+        luogo: 'Parco melta',
+        data: new Date("2024-02-01T23:11:59Z")
+    }],
+    cibo: [{
+        nomeProdotto: 'monge',
+        quantita: 50
+    },{
+        nomeProdotto: 'royal canin',
+        quantita: 20
     }]
 }).save();*/
 

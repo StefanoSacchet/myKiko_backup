@@ -3,6 +3,11 @@ var Schema = mongoose.Schema;
 
 // set up a mongoose model
 
+const food = new Schema({
+    nomeProdotto: String,
+    quantita: Number
+})
+
 const task = new Schema({
     impegno: String,
     animale: String,
@@ -20,9 +25,10 @@ const animal = new Schema({
     immagine: String
 })
 
-module.exports = mongoose.model('User4', new Schema({
+module.exports = mongoose.model('User5', new Schema({
 	email: String,
 	password: String,
 	animale: [animal],
-    impegni: [task]
+    impegni: [task],
+    cibo: [food]
 }))
