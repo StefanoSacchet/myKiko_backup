@@ -49,6 +49,7 @@ jobs:
         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
         heroku_app_name: "mykiko" #Must be unique in Heroku
         heroku_email: "sacchet13@gmail.com"
+        justlogin: true
        
 # Pipeline to test and deploy on Heroku
 # https://medium.com/@katestudwell/using-github-actions-to-create-a-simple-test-and-release-pipeline-for-phoenix-app-d0d65feed4ed
