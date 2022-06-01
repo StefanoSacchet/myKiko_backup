@@ -8,7 +8,7 @@ function conferma(){
     let luogo = document.getElementById("luogo").value;
     let data = document.getElementById("data").value;
 
-    console.log(data);
+    //console.log(data);
 
     fetch('../api/v1/impegniAnimali/aggiungiImpegno', {
         method: 'POST',
