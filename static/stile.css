@@ -1,10 +1,17 @@
-body{
+#body{
     background-image: url("images/sfondoso2.jpg");
     background-repeat: no-repeat;
     background-size:cover;
     background-color: lightskyblue;
     background-size: 1000px 1000px;
     background-position: 600px -220px;
+}
+
+#loginForm{
+    margin: 0 auto;
+    position: absolute;
+    right: 42.5%;
+    top: 15%;
 }
 
 #cards{
