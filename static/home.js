@@ -9,10 +9,6 @@ let btnAnnullaDelete = document.getElementById("annullaDelete");
 btnConfermaDelete.hidden = true;
 btnAnnullaDelete.hidden = true;
 
-function infoAnimale(){
-    document.location.href = '/pagine/infoAnimale.html';
-}
-
 function modificaCredenziali(){
     document.location.href = '/pagine/modificaCredenziali.html';
 }
@@ -52,6 +48,10 @@ function annullaDelete(){
     btnDelete.disabled = false;
     btnConfermaDelete.hidden = true;
     btnAnnullaDelete.hidden = true;
+}
+
+function infoAnimale(){
+    document.location.href = '/pagine/infoAnimale.html';
 }
 
 function impegni(){
