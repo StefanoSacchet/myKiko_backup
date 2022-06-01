@@ -171,25 +171,21 @@ paths:
                 caratteristicheSpecie:
                 
                 
-  /deleteAccount:
-    x-summary: 
+/deleteaccount:
+    x-summary: Elimina account
     delete:
-      description: >-
-        Puoi cancellare il tuo account corrente e tutti i dati ad esso relativi.
-      summary: Elimina account
-      parameters:
-        - name: body
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/schemas/User'
+      summary: elimina account con tutti i suoi dati
       responses:
         200:
-          description: 'account deleted'
+          description: account eliminato (controllo svolto con successo)
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/schemas'
         500:
-          description: 'Delete failed. User not found.'
+          description: Delete failed. User not found.
         417:
-          description: 'Eliminazione fallita (controllo svolto senza successo),'
+          description: Eliminazione fallita (controllo svolto senza successo).    
           
    /inforazza:
     x-summary: Informazioni razza
@@ -210,7 +206,7 @@ paths:
           description: 'Delete failed. Razza not found.'  
         
     /impegni:
-     x-summary: Vede tutte le info
+     x-summary: Vede tutte le info dell'impegno
      get:
       summary: Visualizza gli impegni dell'utente
       responses:
@@ -220,10 +216,30 @@ paths:
                 type: array
                 items:
                   $ref: '#/definitions/schemas'
+          examples:
+            application/json:
+              - impegno: veterinario
+              - animale: Molly
+              - luogo: maltese
+              - data: 12/06/2022
         500:
           description: 'User not found'
+          
+   /deleteanimal:
+    x-summary: Elimina animale
+    delete:
+      summary: elimina animale con tutti i suoi dati
+      responses:
+        200:
+          description: animale eliminato (controllo svolto con successo)
           schema:
-                type: string    
+            type: array
+            items:
+              $ref: '#/definitions/schemas'
+        500:
+          description: Delete failed. User not found.
+        417:
+          description: Eliminazione fallita (controllo svolto senza successo).         
   
 components:
   schemas:
@@ -237,6 +253,7 @@ components:
         - peso
         - CodiceChip
         - infoSpecie
+        - idAnimale
       properties:
         email:
           type: String
@@ -262,6 +279,29 @@ components:
         immagine:
           type: string
           description: inidirizzo che conduce all'immagine corretta
+        idAnimale:
+          type: string
+          description: identificativo dell'animale  
+    impegni:
+          type: object
+         required: 
+            - impegno
+            - animale
+            - luogo
+            - data
+          properties:
+            impegno:
+              type: string
+              description: "nome dell'impegno"
+            animale:
+              type: string
+              description: "nome animale"
+            luogo:
+              type: string
+              description: "localita dell'impegno"
+            data:
+              type: string
+              description: "data impegno"      
          
     User:
       type: object
