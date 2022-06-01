@@ -9,7 +9,7 @@ servers:
   - url: http://localhost:8080/api/v1
     description: Localhost
 paths:
-  /authentications:
+   /authentications:
     post:
       description: >-
         Verify the user's credentials in the system
@@ -38,7 +38,7 @@ paths:
                 type: string
               description: Link to the user plus his informations
       
-  /registration:
+   /registration:
     post:
       description: >-
         Creates a new user in the system
@@ -74,7 +74,7 @@ paths:
                 type: string
               description: Registration failed. input empty
 
-  /infoAnimale:
+   /infoAnimale:
     get:
       description: >-
         Gets the pet's info from the database
@@ -89,7 +89,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/Animale'
   
-  /modificaCredenziali:
+   /modificaCredenziali:
     put:
       description: >-
         Modifies user's credentials
@@ -113,7 +113,7 @@ paths:
                   type: string
                 description: Failed changes, empty inputs fields
 
-  /modificaInfoAnimale:
+   /modificaInfoAnimale:
     put:
       description: >-
         Modifies pet's data
@@ -133,7 +133,7 @@ paths:
                   type: string
                 description: Failed changes, empty inputs fields
                 
-  /AggiungiAnimale:
+   /AggiungiAnimale:
     post:
       description: >-
         Puoi aggiungere il tuo animale inserendo le informazioni disponibili
@@ -171,25 +171,21 @@ paths:
                 caratteristicheSpecie:
                 
                 
-  /deleteAccount:
-    x-summary: 
+   /deleteaccount:
+    x-summary: Elimina account
     delete:
-      description: >-
-        Puoi cancellare il tuo account corrente e tutti i dati ad esso relativi.
-      summary: Elimina account
-      parameters:
-        - name: body
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/schemas/User'
+      summary: elimina account con tutti i suoi dati
       responses:
         200:
-          description: 'account deleted'
+          description: account eliminato (controllo svolto con successo)
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/schemas'
         500:
-          description: 'Delete failed. User not found.'
+          description: Delete failed. User not found.
         417:
-          description: 'Eliminazione fallita (controllo svolto senza successo),'
+          description: Eliminazione fallita (controllo svolto senza successo).    
           
    /inforazza:
     x-summary: Informazioni razza
@@ -209,8 +205,8 @@ paths:
          500:
           description: 'Delete failed. Razza not found.'  
         
-    /impegni:
-     x-summary: Vede tutte le info
+   /impegni:
+     x-summary: Vede tutte le info dell'impegno
      get:
       summary: Visualizza gli impegni dell'utente
       responses:
@@ -220,11 +216,63 @@ paths:
                 type: array
                 items:
                   $ref: '#/definitions/schemas'
+          examples:
+            application/json:
+              - impegno: veterinario
+              - animale: Molly
+              - luogo: maltese
+              - data: 12/06/2022
         500:
           description: 'User not found'
+          
+   /deleteanimal:
+    x-summary: Elimina animale
+    delete:
+      summary: elimina animale con tutti i suoi dati
+      responses:
+        200:
+          description: animale eliminato (controllo svolto con successo)
           schema:
-                type: string    
-  
+            type: array
+            items:
+              $ref: '#/definitions/schemas'
+        500:
+          description: Delete failed. User not found.
+        417:
+          description: Eliminazione fallita (controllo svolto senza successo).         
+   
+   /deletetask:
+    x-summary: Elimina impegno
+    delete:
+      summary: elimina impegno con tutti i suoi dati
+      responses:
+        200:
+          description: impegno eliminato (controllo svolto con successo)
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/schemas'
+        500:
+          description: Delete failed. User not found.
+        417:
+          description: Eliminazione fallita (controllo svolto senza successo). 
+          
+   /deletefood:
+    x-summary: Elimina cibo
+    delete:
+      summary: elimina cibo con tutti i suoi dati
+      responses:
+        200:
+          description: cibo eliminato (controllo svolto con successo)
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/schemas'
+        500:
+          description: Delete failed. User not found.
+        417:
+          description: Eliminazione fallita (controllo svolto senza successo).           
+
 components:
   schemas:
     Animale:
@@ -237,6 +285,8 @@ components:
         - peso
         - CodiceChip
         - infoSpecie
+        - immagine
+        - idAnimale
       properties:
         email:
           type: String
@@ -262,7 +312,43 @@ components:
         immagine:
           type: string
           description: inidirizzo che conduce all'immagine corretta
+        idAnimale:
+          type: string
+          description: identificativo dell'animale  
+    impegni:
+         type: object
+         required: 
+            - impegno
+            - animale
+            - luogo
+            - data
+            - idImpegno
+          properties:
+            impegno:
+              type: string
+              description: "nome dell'impegno"
+            animale:
+              type: string
+              description: "nome animale"
+            luogo:
+              type: string
+              description: "localita dell'impegno"
+            data:
+              type: string
+              description: "data impegno" 
+            idImpegno:
+              type: string
+              description: identificativo dell'impegno  
+    cibo:
+      type: object
+      required:
+         -idCibo
+      properties:
+         idCibo:
+           type: string
+           description: identificativo di cibo   
          
+    
     User:
       type: object
       required:
