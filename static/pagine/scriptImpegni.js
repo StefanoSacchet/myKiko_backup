@@ -30,7 +30,8 @@ function creaCard(impegno){
 
     var p = document.createElement("p");
     p.setAttribute("class","card-text");
-    p.innerHTML = "Impegno: " + impegno.impegno + "<br>Luogo: " + impegno.luogo + " <br>Data: " + impegno.data;
+    formatData(p, impegno);
+    //p.innerHTML = "Impegno: " + impegno.impegno + "<br>Luogo: " + impegno.luogo + " <br>Data: " + impegno.data;
 
     var h5 = document.createElement("h5");
     h5.setAttribute("class","card-title");
@@ -107,4 +108,50 @@ function aggiungiImpegno(){
 //Go back to home screen
 function goBack(){
     document.location.href = '/home.html';
+}
+
+function formatData(p, impegno){
+    console.log(impegno);
+    let year;
+    let month;
+    let day;
+    let hour;
+    let minutes;
+    for(i=0; i<4; i++){
+        if(i == 0){
+            year = impegno.data[i];
+        }else{
+            year += impegno.data[i];
+        }
+    }
+    for(i=5; i<7; i++){
+        if(i == 5){
+            month = impegno.data[i];
+        }else{
+            month += impegno.data[i];
+        }
+    }
+    for(i=8; i<10; i++){
+        if(i == 8){
+            day = impegno.data[i];
+        }else{
+            day += impegno.data[i];
+        }
+    }
+    for(i=11; i<13; i++){
+        if(i == 11){
+            hour = impegno.data[i];
+        }else{
+            hour += impegno.data[i];
+        }
+    }
+    for(i=14; i<16; i++){
+        if(i == 14){
+            minutes = impegno.data[i];
+        }else{
+            minutes += impegno.data[i];
+        }
+    }
+
+    p.innerHTML = "Impegno: " + impegno.impegno + "<br>Luogo: " + impegno.luogo + " <br>Data: " + day + "/" + month + "/" + year + "<br>Ora: " + hour + ":" + minutes;
 }
