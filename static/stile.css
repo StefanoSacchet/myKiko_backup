@@ -14,6 +14,8 @@
     top: 15%;
 }
 
+
+
 #cards{
     text-align: center; /*contenuto centrato*/
     margin-top: -50px; /*spazio superiore*/
@@ -36,7 +38,7 @@
 }
 
 #subtitle{
-    font-family: Montserrat, sans-serif;
+    font-family: Consolas, italic;
     margin-left: 85px;
     font-size: 45px;
 }

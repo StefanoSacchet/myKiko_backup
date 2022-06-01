@@ -78,7 +78,7 @@ function signUp(){
         //console.log(data); /*problema: id = undefinfed*/
 
         if(data.success){
-            document.getElementById("paraInfo").innerHTML = "Credenziali registrate, effetuare il login";
+            document.getElementById("paraInfo").innerHTML = "Account salvato, effetuare il login";
         }else if(data.message == "Registration failed. User already subscribed."){
             document.getElementById("paraDanger").innerHTML = "Utente già iscritto";
         }else if(data.message == "Registration failed. input empty"){
