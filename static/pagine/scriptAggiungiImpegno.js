@@ -7,7 +7,6 @@ function conferma(){
     let animale = document.getElementById("animale").value;
     let luogo = document.getElementById("luogo").value;
     let data = document.getElementById("data").value;
-
     //console.log(data);
 
     fetch('../api/v1/impegniAnimali/aggiungiImpegno', {

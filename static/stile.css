@@ -14,6 +14,10 @@
     top: 15%;
 }
 
+#margine{
+    margin-left: 0px;
+}
+
 #cards{
     text-align: center; /*contenuto centrato*/
     margin-top: -50px; /*spazio superiore*/

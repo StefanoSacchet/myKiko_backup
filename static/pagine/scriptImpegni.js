@@ -111,7 +111,7 @@ function goBack(){
 }
 
 function formatData(p, impegno){
-    console.log(impegno);
+    //console.log(impegno);
     let year;
     let month;
     let day;
@@ -152,6 +152,10 @@ function formatData(p, impegno){
             minutes += impegno.data[i];
         }
     }
+
+    let tmp = hour
+    hour = parseInt(tmp) + 1;
+    //console.log(parseInt(hour));
 
     p.innerHTML = "Impegno: " + impegno.impegno + "<br>Luogo: " + impegno.luogo + " <br>Data: " + day + "/" + month + "/" + year + "<br>Ora: " + hour + ":" + minutes;
 }

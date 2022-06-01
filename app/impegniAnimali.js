@@ -36,7 +36,7 @@ router.post('/aggiungiImpegno', async function(req,res){
         res.status(400).json({ success: false, message: 'Empty inputs' })
     }else{
 
-        let user = await User.updateOne( { email: userEmail }, { $push: { "impegni": {impegno: impegnoNew, animale: animaleNew, luogo: luogoNew, data: dataNew} } });
+        let user = await User.updateOne( { email: userEmail }, { $push: { "impegni": {impegno: impegnoNew, animale: animaleNew, luogo: luogoNew, data: dataNew} } } );
 
         if(user.acknowledged == true){
             res.status(201).json({ success: true, message: 'Data inserted' })
