@@ -187,7 +187,23 @@ paths:
         417:
           description: Eliminazione fallita (controllo svolto senza successo).    
           
- 
+   /inforazza:
+    x-summary: Informazioni razza
+    get:
+      summary: Visualizza le informazioni sulla razza dell'animale
+      responses:
+        200:
+          description: Visualizza info
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/schemas'
+          examples:
+            application/json:
+            - infoSpecie: spiegazione della razza
+              immagine: /images/esempioaniamle.jpeg
+         500:
+          description: 'Delete failed. Razza not found.' 
         
    /impegni:
      x-summary: Vede tutte le info dell'impegno
