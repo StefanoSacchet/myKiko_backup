@@ -203,7 +203,7 @@ paths:
             - infoSpecie: spiegazione della razza
               immagine: /images/esempioaniamle.jpeg
          500:
-          description: 'Delete failed. Razza not found.'  
+          description: 'Delete failed. Razza not found.' 
         
    /impegni:
      x-summary: Vede tutte le info dell'impegno
