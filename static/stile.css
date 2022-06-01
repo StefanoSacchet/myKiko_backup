@@ -1,13 +1,41 @@
+body{
+    background-image: url("images/sfondoso1.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-color: lightskyblue;
+    background-size: 1000px 1000px;
+    background-position: 600px -200px;
+}
+
 #cards{
     text-align: center; /*contenuto centrato*/
-    margin-top: 50px; /*spazio superiore*/
-    }
-    .card{
+    margin-top: -50px; /*spazio superiore*/
+}
+
+.card{
     /*larghezza dei div skill, in pagina ne abbiamo 3 quindi 100 / 3
-    lasciando un po' di spazio per i margini
-    */
+    lasciando un po' di spazio per i margini*/
     width: 28%;
     display: inline-block; /*questi div saranno posti uno a fianco all'altro*/
     margin: 2%; /*un po di spazio tra i div*/
     color: #2d3e50;
-    }
+    border-radius: 5%;
+}
+
+#title{
+    font-family: Montserrat, sans-serif;
+    margin-left: 85px;
+    font-size: 60px;
+}
+
+#subtitle{
+    font-family: Montserrat, sans-serif;
+    margin-left: 85px;
+    font-size: 45px;
+}
+
+#logout{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
