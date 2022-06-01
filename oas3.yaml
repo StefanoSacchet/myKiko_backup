@@ -222,6 +222,7 @@ paths:
               - animale: Molly
               - luogo: maltese
               - data: 12/06/2022
+              - ora: 12:00
         500:
           description: 'User not found'
           
@@ -336,6 +337,9 @@ components:
             data:
               type: string
               description: "data impegno" 
+            ora:
+              type: string
+              description: "ora impegno"
             idImpegno:
               type: string
               description: identificativo dell'impegno  
