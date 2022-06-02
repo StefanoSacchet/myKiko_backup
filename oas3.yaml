@@ -256,7 +256,24 @@ paths:
         500:
           description: Delete failed. User not found.
         417:
-          description: Eliminazione fallita (controllo svolto senza successo).           
+          description: Eliminazione fallita (controllo svolto senza successo).
+          
+   /TipologieCibo:
+     get:
+      summary: Vede tutte le info del cibo
+      responses:
+        200:
+          description: 'Collections of food'
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/schemas'
+          examples:
+            application/json:
+              - nomeProdotto: Cesar
+              - quantita: 150
+        500:
+          description: 'User not found'      
 
 components:
   schemas:
@@ -334,7 +351,13 @@ components:
       properties:
          idCibo:
            type: string
-           description: identificativo di cibo   
+           description: identificativo di cibo
+         nomeProdotto:
+           type: string
+           description: "nome del prodotto"
+         quantita:
+           type: number
+           description: "quantita cibo"  
          
     
     User:
