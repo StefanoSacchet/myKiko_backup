@@ -170,7 +170,6 @@ paths:
                 codicechip:
                 caratteristicheSpecie:
                 
-                
    /deleteaccount:
     x-summary: Elimina account
     delete:
