@@ -117,45 +117,45 @@ function formatData(p, impegno){
     let day;
     let hour;
     let minutes;
-    for(i=0; i<4; i++){
+
+    for(i=0; i<16; i++){
         if(i == 0){
             year = impegno.data[i];
-        }else{
+        }else if(i < 4){
             year += impegno.data[i];
         }
-    }
-    for(i=5; i<7; i++){
         if(i == 5){
             month = impegno.data[i];
-        }else{
+        }else if(i < 7){
             month += impegno.data[i];
         }
-    }
-    for(i=8; i<10; i++){
         if(i == 8){
             day = impegno.data[i];
-        }else{
+        }else if(i < 10){
             day += impegno.data[i];
         }
-    }
-    for(i=11; i<13; i++){
         if(i == 11){
             hour = impegno.data[i];
-        }else{
+        }else if(i < 13){
             hour += impegno.data[i];
         }
-    }
-    for(i=14; i<16; i++){
         if(i == 14){
             minutes = impegno.data[i];
-        }else{
+        }else if(i < 16){
             minutes += impegno.data[i];
         }
     }
 
     let tmp = hour
     hour = parseInt(tmp) + 1;
-    //console.log(parseInt(hour));
 
-    p.innerHTML = "Impegno: " + impegno.impegno + "<br>Luogo: " + impegno.luogo + " <br>Data: " + day + "/" + month + "/" + year + "<br>Ora: " + hour + ":" + minutes;
+    if(hour < 10){
+        hour = "0" + hour;
+    }
+
+    if(hour != "01" || minutes != "00"){
+        p.innerHTML = "Impegno: " + impegno.impegno + "<br>Luogo: " + impegno.luogo + " <br>Data: " + day + "/" + month + "/" + year + "<br>Ora: " + hour + ":" + minutes;
+    }else{
+        p.innerHTML = "Impegno: " + impegno.impegno + "<br>Luogo: " + impegno.luogo + " <br>Data: " + day + "/" + month + "/" + year;
+    }
 }
