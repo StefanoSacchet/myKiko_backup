@@ -273,7 +273,147 @@ paths:
               - nomeProdotto: Cesar
               - quantita: 150
         500:
-          description: 'User not found'      
+          description: 'User not found' 
+          
+   /AggiungiImpegno:
+    post:
+      description: >-
+        Puoi aggiungere il tuo nuovo impegno inserendo le informazioni disponibili
+      summary: Crea un nuovo impegno nel database
+      parameters:
+        - name: body
+          in: body 
+          required: true
+          schema:
+            $ref: '#/definitions/schemas'
+      responses:
+        201:
+          description: 'Data Inserted'
+          schema:
+            $ref: '#/definitions/schemas' 
+          examples:
+            application/json:
+              - email: emailUtente
+                impegno: impegno_impegni
+                animale: animale_impegni
+                luogo: luogo_impegni
+                data: data_impegni
+                ora: ora_impegni
+        400:       
+          description: Empty inputs 
+          examples:
+            application/json:
+               - email: emailUtente
+                 impegno: 
+                 animale: 
+                 luogo: 
+                 data: 
+                 ora:
+                 
+   /ModificaImpegno:
+    x-summary: Dati modificati
+    put:
+      summary: Modifica dati impegno
+      responses:
+        200:
+          description: Changes applyed
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/schemas'
+          examples:
+            application/json:
+              - email: emailUtente
+                idImpegno: 6289378051a91e38f9872234
+                impegno: nuovo_impegno
+                animale: nuovo_animale
+                luogo: nuovo_luogo
+                data: nuova_data
+                ora: nuova_ora
+        400:
+          description: Empty imputs
+          examples:
+            application/json:
+              - email: emailUtente
+                idImpegno: 6289378051a91e38f9872234
+                impegno:
+                animale: 
+                luogo: 
+                data: 
+                ora:
+        500:
+          description: 'User not found'   
+          
+   /InfoAlimentazioneRazza:
+    x-summary: Informazioni alimentazione in base alla razza
+    get:
+      summary: Visualizza le informazioni dell' alimentazione in base alla razza dell'animale
+      responses:
+        200:
+          description: Visualizza info
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/schemas'
+          examples:
+            application/json:
+            - infoAlimentazione: spiegazione dell' alimentazione consigliata in base alla razza
+              immagine: /images/esempioaniamle.jpeg
+        500:
+          description: 'Delete failed. Razza not found.'      
+          
+   /AggiungiCibo:
+    post:
+      description: >-
+        Puoi aggiungere il tuo nuovo prodotto alimentare inserendo le informazioni disponibili
+      summary: Crea un nuovo prodotto alimentare nel database
+      parameters:
+        - name: body
+          in: body 
+          required: true
+          schema:
+            $ref: '#/definitions/schemas'
+      responses:
+        201:
+          description: 'Data Inserted'
+          schema:
+            $ref: '#/definitions/schemas' 
+          examples:
+            application/json:
+                prodotto: Friskies
+                quantita: 1500
+        400:       
+          description: Empty inputs 
+          examples:
+            application/json:
+                 prodotto: ''
+                 quantita: ''
+        423:
+          description: 'Food already exists'
+          examples:
+            application/json:
+              - prodotto: uguale a prodotto gia esistente       
+          
+   /modificavalorecibo:
+    x-summary: Dati modificate
+    put:
+      summary: Modifica dati valore cibo
+      responses:
+        200:
+          description: Changes applyed
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/schemas'
+          examples:
+            application/json:
+              - nomeProdotto: Royal Canin   
+              - valore: 10000
+        500:
+          description: 'User not found'
+        417:
+          description: Operazione fallita.             
+          
 
 components:
   schemas:
@@ -316,7 +456,10 @@ components:
           description: inidirizzo che conduce all'immagine corretta
         idAnimale:
           type: string
-          description: identificativo dell'animale  
+          description: identificativo dell'animale 
+        infoAlimentazione:
+          type: string
+          description: descrizione alimentazione in base alla specie  
     impegni:
          type: object
          required: 
@@ -347,7 +490,9 @@ components:
     cibo:
       type: object
       required:
-         -idCibo
+         - idCibo
+         - nomeProdotto
+         - quantita
       properties:
          idCibo:
            type: string
