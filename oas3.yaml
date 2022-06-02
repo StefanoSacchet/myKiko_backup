@@ -178,10 +178,6 @@ paths:
       responses:
         200:
           description: account eliminato (controllo svolto con successo)
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/schemas'
         500:
           description: Delete failed. User not found.
         417:
@@ -233,10 +229,6 @@ paths:
       responses:
         200:
           description: animale eliminato (controllo svolto con successo)
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/schemas'
         500:
           description: Delete failed. User not found.
         417:
@@ -249,10 +241,6 @@ paths:
       responses:
         200:
           description: impegno eliminato (controllo svolto con successo)
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/schemas'
         500:
           description: Delete failed. User not found.
         417:
@@ -265,10 +253,6 @@ paths:
       responses:
         200:
           description: cibo eliminato (controllo svolto con successo)
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/schemas'
         500:
           description: Delete failed. User not found.
         417:
