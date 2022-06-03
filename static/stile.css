@@ -8,10 +8,10 @@
 }
 
 #loginForm{
-    margin: 0 auto;
-    position: absolute;
-    right: 42.5%;
-    top: 15%;
+    margin: auto;
+    width: 15%;
+    text-align: center;
+    padding: 70px 0;
 }
 
 
