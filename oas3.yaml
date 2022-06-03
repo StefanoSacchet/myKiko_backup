@@ -73,22 +73,7 @@ paths:
               schema:
                 type: string
               description: Registration failed. input empty
-
-   /infoAnimale:
-    get:
-      description: >-
-        Gets the pet's info from the database
-      summary: Sees all the info
-      responses:
-        '200':
-          description: 'Collections of pets'
-          content:
-            application/json:
-              schema:
-                type: string
-                items:
-                  $ref: '#/components/schemas/Animale'
-  
+    
    /modificaCredenziali:
     put:
       description: >-
@@ -112,6 +97,34 @@ paths:
                 schema:
                   type: string
                 description: Failed changes, empty inputs fields
+                
+   /deleteaccount:
+    x-summary: Elimina account
+    delete:
+      summary: elimina account con tutti i suoi dati
+      responses:
+        200:
+          description: account eliminato (controllo svolto con successo)
+        500:
+          description: Delete failed. User not found.
+        417:
+          description: Eliminazione fallita (controllo svolto senza successo).
+          
+          
+   /infoAnimale:
+    get:
+      description: >-
+        Gets the pet's info from the database
+      summary: Sees all the info
+      responses:
+        '200':
+          description: 'Collections of pets'
+          content:
+            application/json:
+              schema:
+                type: string
+                items:
+                  $ref: '#/components/schemas/Animale'
 
    /modificaInfoAnimale:
     put:
@@ -170,18 +183,6 @@ paths:
                 codicechip:
                 caratteristicheSpecie:
                 
-   /deleteaccount:
-    x-summary: Elimina account
-    delete:
-      summary: elimina account con tutti i suoi dati
-      responses:
-        200:
-          description: account eliminato (controllo svolto con successo)
-        500:
-          description: Delete failed. User not found.
-        417:
-          description: Eliminazione fallita (controllo svolto senza successo).    
-          
    /inforazza:
     x-summary: Informazioni razza
     get:
@@ -198,7 +199,20 @@ paths:
             - infoSpecie: spiegazione della razza
               immagine: /images/esempioaniamle.jpeg
          500:
-          description: 'Delete failed. Razza not found.' 
+          description: 'Delete failed. Razza not found.'  
+          
+   /deleteanimal:
+    x-summary: Elimina animale
+    delete:
+      summary: elimina animale con tutti i suoi dati
+      responses:
+        200:
+          description: animale eliminato (controllo svolto con successo)
+        500:
+          description: Delete failed. User not found.
+        417:
+          description: Eliminazione fallita (controllo svolto senza successo).     
+          
         
    /impegni:
      x-summary: Vede tutte le info dell'impegno
@@ -220,18 +234,7 @@ paths:
               - ora: 12:00
         500:
           description: 'User not found'
-          
-   /deleteanimal:
-    x-summary: Elimina animale
-    delete:
-      summary: elimina animale con tutti i suoi dati
-      responses:
-        200:
-          description: animale eliminato (controllo svolto con successo)
-        500:
-          description: Delete failed. User not found.
-        417:
-          description: Eliminazione fallita (controllo svolto senza successo).         
+           
    
    /deletetask:
     x-summary: Elimina impegno
@@ -245,46 +248,11 @@ paths:
         417:
           description: Eliminazione fallita (controllo svolto senza successo). 
           
-   /deletefood:
-    x-summary: Elimina cibo
-    delete:
-      summary: elimina cibo con tutti i suoi dati
-      responses:
-        200:
-          description: cibo eliminato (controllo svolto con successo)
-        500:
-          description: Delete failed. User not found.
-        417:
-          description: Eliminazione fallita (controllo svolto senza successo).
-          
-   /TipologieCibo:
-     get:
-      summary: Vede tutte le info del cibo
-      responses:
-        200:
-          description: 'Collections of food'
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/schemas'
-          examples:
-            application/json:
-              - nomeProdotto: Cesar
-              - quantita: 150
-        500:
-          description: 'User not found' 
-          
    /AggiungiImpegno:
     post:
       description: >-
         Puoi aggiungere il tuo nuovo impegno inserendo le informazioni disponibili
       summary: Crea un nuovo impegno nel database
-      parameters:
-        - name: body
-          in: body 
-          required: true
-          schema:
-            $ref: '#/definitions/schemas'
       responses:
         201:
           description: 'Data Inserted'
@@ -292,7 +260,6 @@ paths:
             $ref: '#/definitions/schemas' 
           examples:
             application/json:
-              - email: emailUtente
                 impegno: impegno_impegni
                 animale: animale_impegni
                 luogo: luogo_impegni
@@ -302,12 +269,11 @@ paths:
           description: Empty inputs 
           examples:
             application/json:
-               - email: emailUtente
-                 impegno: 
-                 animale: 
-                 luogo: 
-                 data: 
-                 ora:
+                 impegno: ''
+                 animale: '' 
+                 luogo: ''
+                 data: '' 
+                 ora: ''
                  
    /ModificaImpegno:
     x-summary: Dati modificati
@@ -322,7 +288,6 @@ paths:
               $ref: '#/definitions/schemas'
           examples:
             application/json:
-              - email: emailUtente
                 idImpegno: 6289378051a91e38f9872234
                 impegno: nuovo_impegno
                 animale: nuovo_animale
@@ -333,15 +298,44 @@ paths:
           description: Empty imputs
           examples:
             application/json:
-              - email: emailUtente
                 idImpegno: 6289378051a91e38f9872234
-                impegno:
-                animale: 
-                luogo: 
-                data: 
-                ora:
+                impegno: ''
+                animale: ''
+                luogo: ''
+                data: ''
+                ora: ''
         500:
-          description: 'User not found'   
+          description: 'User not found'        
+          
+          
+   /deletefood:
+    x-summary: Elimina cibo
+    delete:
+      summary: elimina cibo con tutti i suoi dati
+      responses:
+        200:
+          description: cibo eliminato (controllo svolto con successo)
+        500:
+          description: Delete failed. User not found.
+        417:
+          description: Eliminazione fallita (controllo svolto senza successo).
+          
+  /TipologieCibo:
+     get:
+      summary: Vede tutte le info del cibo
+      responses:
+        200:
+          description: 'Collections of food'
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/schemas'
+          examples:
+            application/json:
+              - nomeProdotto: Cesar
+              - quantita: 15
+        500:
+          description: 'User not found'
           
    /InfoAlimentazioneRazza:
     x-summary: Informazioni alimentazione in base alla razza
@@ -366,12 +360,6 @@ paths:
       description: >-
         Puoi aggiungere il tuo nuovo prodotto alimentare inserendo le informazioni disponibili
       summary: Crea un nuovo prodotto alimentare nel database
-      parameters:
-        - name: body
-          in: body 
-          required: true
-          schema:
-            $ref: '#/definitions/schemas'
       responses:
         201:
           description: 'Data Inserted'
@@ -380,7 +368,7 @@ paths:
           examples:
             application/json:
                 prodotto: Friskies
-                quantita: 1500
+                quantita: 50
         400:       
           description: Empty inputs 
           examples:
@@ -391,7 +379,7 @@ paths:
           description: 'Food already exists'
           examples:
             application/json:
-              - prodotto: uguale a prodotto gia esistente       
+              - prodotto: uguale a prodotto gia esistente     
           
    /modificavalorecibo:
     x-summary: Dati modificate
@@ -407,7 +395,7 @@ paths:
           examples:
             application/json:
               - nomeProdotto: Royal Canin   
-              - valore: 10000
+              - valore: 65
         500:
           description: 'User not found'
         417:
