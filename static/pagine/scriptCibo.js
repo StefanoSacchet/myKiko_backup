@@ -115,6 +115,8 @@ function writeInfo(data){
 
     let imgRazza;
 
+    document.getElementById("btnAccordion").innerHTML = "Informazioni nutrizionali";
+
     //Cerca info alimentari
     fetch('../api/v1/cibo/infoAlimentazione?razza=' + data.razza)
     .then((resp) => resp.json()) // Transform the data into json

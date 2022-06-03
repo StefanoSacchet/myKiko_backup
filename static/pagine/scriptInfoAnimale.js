@@ -58,6 +58,8 @@ function writeInfo(data){
 
     let imgRazza;
 
+    document.getElementById("btnAccordion").innerHTML = "Caratteristiche della specie";
+
     //Cerca info razza
     fetch('../api/v1/animali/infoRazza?razza=' + data.razza)
     .then((resp) => resp.json()) // Transform the data into json
