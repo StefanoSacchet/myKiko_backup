@@ -14,7 +14,15 @@
     padding: 70px 0;
 }
 
+#titolo{
+    font-family: Montserrat, sans-serif;
+    font-size: 60px;
+    color: #644847;
+}
 
+#sottotitolo{
+    font-style: italic;
+}
 
 #cards{
     text-align: center; /*contenuto centrato*/
